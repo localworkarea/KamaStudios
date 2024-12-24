@@ -1,0 +1,64 @@
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+html {
+  // Для Firefox
+  scrollbar-width: none; 
+  // Для старых IE
+  -ms-overflow-style: none; 
+}
+body::-webkit-scrollbar {
+  // Для Chrome, Safari и других на основе WebKit
+  display: none; 
+}
+body {
+  background-color: $black-800;
+}
+
+[class*="__container"] {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: toRem(15);
+  @include adaptiveValue("max-width", 1690,1300,0,1920,1440.98);
+}
+
+.split-lines,
+.split-words,
+.split-chars,
+.split-both {
+  font-kerning: none;
+}
+
+
+// .element {
+//   .line {
+//     overflow: hidden;
+//   }
+//   .word {
+//     transform: translateY(100%);
+//     transition: transform .55s cubic-bezier(.22,.89,.34,.96);
+//   }
+//   &._watcher-view {
+//     .word {
+//       transform: translateY(0);
+//       transition-delay: calc(var(--index) * .03s);
+//     }
+//   }
+// }
