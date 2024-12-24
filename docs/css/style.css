@@ -318,7 +318,7 @@ section {
   top: 0
 }
 .hero.step-3::before {
-  height: 100vh
+  height: 100vh!important
 }
 .hero::before {
   content: "";
@@ -395,7 +395,6 @@ section {
   position: relative
 }
 .figures__title-wr {
-  padding-top: 6.25rem;
   padding-right: .5rem;
   overflow: hidden;
   transition: -webkit-transform .8s ease;
@@ -587,6 +586,9 @@ section {
   }
   .figures__bottom {
     grid-column: 2/3
+  }
+  .figures__title-wr {
+    padding-top: 3.125rem
   }
   .right-figure__body {
     right: 0

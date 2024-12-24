@@ -35,7 +35,7 @@ section {
   }
   &.step-3 {
     &::before {
-      height: 100vh;
+      height: 100vh !important;
       @media (min-width:$mobile){
         transition-delay: 0s;
       }
@@ -198,7 +198,6 @@ section {
 
 	// .figures__title-wr
 	&__title-wr {
-    padding-top: toRem(100);
     padding-right: toRem(8);
     overflow: hidden;
     transition: transform .8s ease;
@@ -211,6 +210,9 @@ section {
     }
     @media (max-width:$tablet){
       padding-left: toRem(15);
+    }
+    @media (min-width:$mobile){
+      padding-top: toRem(50);
     }
     @media (max-width:$mobile){
       transition-delay: .3s;
