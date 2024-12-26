@@ -5,9 +5,9 @@
   left: 0;
   width: 100%;
   @include adaptiveValue("padding-top", 20, 16,0,1440.98,480.98);
-  // @media (min-width:toEm(1200.98)){
-  //   mix-blend-mode: difference;
-  // }
+  @media (min-width:toEm(1200.98)){
+    mix-blend-mode: difference;
+  }
   // .header__container
   &__container {
     display: flex;

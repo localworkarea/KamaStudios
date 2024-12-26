@@ -32,7 +32,7 @@ import * as flsFunctions from "./files/functions.js";
 /* (i) необхідно для коректного відображення webp із css */
 // flsFunctions.isWebp();
 /* Додавання класу touch для HTML якщо браузер мобільний */
-// flsFunctions.addTouchClass();
+flsFunctions.addTouchClass();
 /* Додавання loaded для HTML після повного завантаження сторінки */
 flsFunctions.addLoadedClass();
 /* Модуль для роботи з меню (Бургер) */
@@ -100,7 +100,7 @@ flsFunctions.menuInit();
 Модуль паралаксу мишею
 Документація: https://template.fls.guru/template-docs/modul-animacii-parallaks-obektov-pri-dvizhenii-myshi.html
 */
-// import './libs/parallax-mouse.js'
+import './libs/parallax-mouse.js'
 
 // ========================================================================================================================================================================================================================================================
 // Робота з формами ========================================================================================================================================================================================================================================================
@@ -190,7 +190,7 @@ flsForms.formFieldsInit({
 // Спостерігач за об'єктами з атрибутом data-watch
 // Документація: https://template.fls.guru/template-docs/modul-nabljudatel-za-poyavleniem-elementa-pri-skrolle.html
 // Сніппет(HTML):
-// import './libs/watcher.js'
+import './libs/watcher.js'
 
 // Модуль поекранної прокрутки
 // Документація: https://template.fls.guru/template-docs/modul-poekrannoj-prokrutki-stranicy-fullpage.html

@@ -30,6 +30,7 @@ body::-webkit-scrollbar {
 }
 body {
   background-color: $black-800;
+  color: $gray-200;
 }
 
 [class*="__container"] {
@@ -62,3 +63,188 @@ body {
 //     }
 //   }
 // }
+
+.pdd-t {
+  @include adaptiveValue("padding-top", 100, 60,0,1440.98,480.98);
+}
+.pdd-b {
+  @include adaptiveValue("padding-bottom", 100, 60,0,1440.98,480.98);
+}
+.pdd-b-120 {
+  @include adaptiveValue("padding-bottom", 120, 80,0,1440.98,480.98);
+}
+.pdd-b-160 {
+  @include adaptiveValue("padding-bottom", 160, 80,0,1440.98,480.98);
+}
+.pdd-t-160 {
+  @include adaptiveValue("padding-top", 160, 80,0,1440.98,480.98);
+}
+.pdd-tb-160 {
+  @include adaptiveValue("padding-top", 160, 80,0,1440.98,480.98);
+  @include adaptiveValue("padding-bottom", 160, 80,0,1440.98,480.98);
+}
+.pdd-tb {
+  @include adaptiveValue("padding-top", 100, 60,0,1440.98,480.98);
+  @include adaptiveValue("padding-bottom", 100, 60,0,1440.98,480.98);
+}
+
+.txt-24 {
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 1.3;
+  // @include adaptiveValue("font-size", 31, 24,2,1920.98,1440.98);
+  // @include adaptiveValue("font-size", 24, 13,3,1440.98,480.98);
+
+  @include adaptiveValue("font-size", 31, 13,0,1920.98,480.98);
+}
+.txt-32 {
+  line-height: 1.3;
+  // @include adaptiveValue("font-size", 42, 32,2,1920.98,1440.98);
+  // @include adaptiveValue("font-size", 32, 20,3,1440.98,480.98);
+
+  @include adaptiveValue("font-size", 42, 20,0,1920.98,480.98);
+}
+.txt-20 {
+  font-weight: 500;
+  line-height: 1.2;
+  // @include adaptiveValue("font-size", 26, 20,2,1920.98,1440.98);
+  // @include adaptiveValue("font-size", 20, 15,3,1440.98,480.98);
+
+  @include adaptiveValue("font-size", 26, 15,0,1920.98,480.98);
+}
+
+
+
+
+.block-clm {
+  display: grid;
+  gap: toRem(30);
+  @media (min-width:toEm(700.98)){
+    grid-template-columns: 22% 1fr;
+  }
+  // .block-clm__left
+  &__left {
+    padding-top: 5px;
+  }
+  // .block-clm__title
+  &__title {
+    color: $gray-400;
+  }
+  // .block-clm__right
+  &__right {
+  }
+	// .block-clm__body
+	&__body {
+    @media (min-width:$tablet){
+      max-width: 76%;
+    }
+	}
+  // .block-clm__txt
+  &__txt {
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 52, 16,0,1440.98,480.98);
+    }
+  }
+}
+
+
+// Ticker =================================
+
+// ========================================
+
+.spoller-item {
+  cursor: pointer;
+  &._active {
+    .spoller-body {
+      height: var(--height-item);
+    }
+  }
+  .spoller-title {
+  }
+  .spoller-body {
+    height: 0;
+    overflow: hidden;
+    transition: height .6s ease;
+  }
+}
+
+
+.btn-circle {
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  position: relative;
+  // @include adaptiveValue("width", 438, 337,2,1920.98,1440.98);
+  // @include adaptiveValue("width", 337, 145,3,1440.98,480.98);
+
+  @include adaptiveValue("width", 438, 145,0,1920.98,480.98);
+  &:before {
+    content:'';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image: url('../img/icons/circle-btn.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:contain;
+    width: 100%;
+    height: 100%;
+    transform-origin: 50% 50%;
+    animation: circleBtn 10s linear forwards infinite;
+  }
+  @media (any-hover: hover){
+    &:hover{
+      .btn-circle__arr {
+        svg {
+          transform: translate(100%,-100%);
+        }
+      
+      }
+    }
+  }
+  // .btn-circle__body
+  &__body {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    @include adaptiveValue("gap", 26, 5,0,1920.98,480.98);
+    span {
+      display: inline-block;
+    }
+  }
+  // .btn-circle__txt
+  &__txt {
+    text-transform: uppercase;
+    font-weight: 500;
+    // @include adaptiveValue("font-size", 31, 24,2,1920.98,1440.98);
+    // @include adaptiveValue("font-size", 24, 13,3,1440.98,480.98);
+
+    @include adaptiveValue("font-size", 31, 13,0,1920.98,480.98);
+  }
+  // .btn-circle__arr
+  &__arr {
+    position: relative;
+    overflow: hidden;
+    height: fit-content;
+    svg {
+      height: auto;
+      transition: transform .4s ease;
+      @include adaptiveValue("width", 22, 10,0,1920.98,480.98);
+    }
+    .arrow {
+
+    }
+    .arrow-clone {
+      position: absolute;
+      top: calc(100% - 1px);
+      left:calc(-100% - 1px);
+    }
+  }
+}
+
+@keyframes circleBtn {
+  to {
+    transform: rotate(360deg);
+  }
+}
