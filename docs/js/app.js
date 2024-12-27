@@ -295,7 +295,7 @@
                 const parameters = {
                     axis: el.dataset.axis ? el.dataset.axis : "v",
                     direction: el.dataset.direction ? el.dataset.direction + "1" : "-1",
-                    coefficient: el.dataset.coefficient ? Number(el.dataset.coefficient) : 5,
+                    coefficient: el.dataset.coefficient ? Number(el.dataset.coefficient) : 20,
                     additionalProperties: el.dataset.properties ? el.dataset.properties : ""
                 };
                 this.parameters(el, parameters);

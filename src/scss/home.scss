@@ -989,7 +989,7 @@
   }
 	// .bg-img__bg
 	&__bg {
-    transform: scale(1.4);
+    transform: scale(1.1);
     @media (min-width:$mobileSmall){
       aspect-ratio: 1439/684; 
     }
@@ -1064,8 +1064,6 @@
     }
   }
 }
-
-
 
 .ticker-clients {
 	// .ticker-clients__ticker
