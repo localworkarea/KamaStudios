@@ -248,3 +248,38 @@ body {
     transform: rotate(360deg);
   }
 }
+
+
+
+
+
+
+
+
+
+[data-ticker] {
+  // overflow: hidden;
+  overflow-x: clip;
+  width: max-content;
+  display: flex;
+  align-items: center;
+  > * {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+}
+
+
+@keyframes scroll {
+  to {
+    transform: translateX(-100%) ;
+  }
+}
+@keyframes scroll-rev {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}

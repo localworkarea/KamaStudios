@@ -310,6 +310,49 @@ body {
     transform: rotate(360deg)
   }
 }
+[data-ticker] {
+  overflow-x: clip;
+  width: -webkit-max-content;
+  width: max-content;
+  display: flex;
+  align-items: center
+}
+[data-ticker]>* {
+  display: flex;
+  flex-wrap: nowrap
+}
+@-webkit-keyframes scroll {
+  to {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%)
+  }
+}
+@keyframes scroll {
+  to {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%)
+  }
+}
+@-webkit-keyframes scroll-rev {
+  from {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%)
+  }
+  to {
+    -webkit-transform: translateX(0);
+    transform: translateX(0)
+  }
+}
+@keyframes scroll-rev {
+  from {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%)
+  }
+  to {
+    -webkit-transform: translateX(0);
+    transform: translateX(0)
+  }
+}
 .header {
   position: fixed;
   z-index: 20;
@@ -676,49 +719,6 @@ body {
   color: #aaaaa9;
   max-width: 76%
 }
-[data-ticker] {
-  overflow-x: clip;
-  width: -webkit-max-content;
-  width: max-content;
-  display: flex;
-  align-items: center
-}
-[data-ticker]>* {
-  display: flex;
-  flex-wrap: nowrap
-}
-@-webkit-keyframes scroll {
-  to {
-    -webkit-transform: translateX(-100%);
-    transform: translateX(-100%)
-  }
-}
-@keyframes scroll {
-  to {
-    -webkit-transform: translateX(-100%);
-    transform: translateX(-100%)
-  }
-}
-@-webkit-keyframes scroll-rev {
-  from {
-    -webkit-transform: translateX(-100%);
-    transform: translateX(-100%)
-  }
-  to {
-    -webkit-transform: translateX(0);
-    transform: translateX(0)
-  }
-}
-@keyframes scroll-rev {
-  from {
-    -webkit-transform: translateX(-100%);
-    transform: translateX(-100%)
-  }
-  to {
-    -webkit-transform: translateX(0);
-    transform: translateX(0)
-  }
-}
 .ticker {
   transition: opacity .3s ease,-webkit-transform .85s ease;
   transition: transform .85s ease,opacity .3s ease;
@@ -842,7 +842,8 @@ body {
 }
 .team__block {
   position: sticky;
-  top: 0
+  top: 0;
+  z-index: 0
 }
 .team__block .block-clm__title,
 .team__block .block-clm__txt {
@@ -926,12 +927,67 @@ body {
   transition: transform .45s ease,-webkit-transform .45s ease;
   height: auto
 }
+.bg-img {
+  overflow: hidden;
+  position: relative
+}
+.bg-img__bg {
+  -webkit-transform: scale(1.4);
+  transform: scale(1.4)
+}
+.bg-img__logo {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-65%,-50%);
+  transform: translate(-65%,-50%);
+  height: auto
+}
+.clients__title {
+  color: #7a7a7d
+}
+.clients__link {
+  display: block;
+  margin-inline: auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content
+}
+.ticker-clients__item {
+  cursor: pointer;
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: .125rem solid #454546;
+  border-bottom: .125rem solid #454546;
+  border-left: .0625rem solid #454546;
+  border-right: .0625rem solid #454546;
+  transition: border .3s ease
+}
+.ticker-clients__item img {
+  max-width: 84%;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+  object-fit: contain
+}
+.ticker-clients__item._set-sm img {
+  max-height: 84%
+}
 @media (min-width:30.06125em) {
   .spollers-s__item:not(:last-child) {
     border-bottom: .125rem solid #454546
   }
   .spollers-mb__item:not(:last-child) .spollers-mb__summary {
     border-bottom: .125rem solid #454546
+  }
+  .bg-img__bg {
+    aspect-ratio: 1439/684
+  }
+  .bg-img__logo {
+    width: 30%
   }
 }
 @media (min-width:31.31125em) {
@@ -1109,6 +1165,9 @@ body {
   .ticker__item {
     padding-right: 2.1875rem
   }
+  .clients__ticker {
+    margin-bottom: 11.25rem
+  }
 }
 @media (min-width:120.06125em) {
   .txt-24 {
@@ -1217,6 +1276,18 @@ body {
   }
   .spollers-mb__img img {
     max-width: 20rem
+  }
+  .clients__title {
+    margin-bottom: 8.125rem
+  }
+  .clients__link .btn-circle__txt {
+    font-size: 3.375rem
+  }
+  .clients__link .btn-circle__arr svg {
+    width: 2rem
+  }
+  .ticker-clients__item {
+    width: 24.375rem
   }
 }
 @media (min-width:120em) {
@@ -1534,6 +1605,24 @@ body {
   .spollers-mb__img img {
     max-width: 7.1875rem
   }
+  .bg-img__bg {
+    aspect-ratio: 385/446
+  }
+  .bg-img__logo {
+    width: 49%
+  }
+  .clients__title {
+    margin-bottom: 1.875rem
+  }
+  .clients__ticker {
+    margin-bottom: 3.75rem
+  }
+  .clients__link .btn-circle__txt {
+    font-size: 1.25rem
+  }
+  .clients__link .btn-circle__arr svg {
+    width: .8125rem
+  }
 }
 @media (max-width:24.43625em) {
   .figures__txt {
@@ -1553,6 +1642,9 @@ body {
   }
   .info-hero__txt {
     font-size: 1.875rem
+  }
+  .ticker-clients__item {
+    width: 12.125rem
   }
 }
 @media (max-width:23.81125em) {
@@ -1610,6 +1702,9 @@ body {
   }
   .ticker__item {
     padding-right: clamp(.9375rem ,.3112239583rem + 2.0833333333vw ,2.1875rem)
+  }
+  .clients__ticker {
+    margin-bottom: clamp(3.75rem ,-.00765625rem + 12.5vw ,11.25rem)
   }
 }
 @media (min-width:30.06125em)and (max-width:120.06125em) {
@@ -1702,6 +1797,15 @@ body {
   .spollers-mb__img img {
     max-width: clamp(7.1875rem ,2.9079470486rem + 14.2361111111vw ,20rem)
   }
+  .clients__title {
+    margin-bottom: clamp(1.875rem ,-.2125868056rem + 6.9444444444vw ,8.125rem)
+  }
+  .clients__link .btn-circle__txt {
+    font-size: clamp(1.25rem ,.5402204861rem + 2.3611111111vw ,3.375rem)
+  }
+  .clients__link .btn-circle__arr svg {
+    width: clamp(.8125rem ,.4158585069rem + 1.3194444444vw ,2rem)
+  }
 }
 @media (min-width:24.43625em)and (max-width:120.06125em) {
   .figures__txt {
@@ -1718,6 +1822,9 @@ body {
   }
   .info-hero__txt {
     font-size: clamp(1.875rem ,1.3639150327rem + 2.091503268vw ,3.875rem)
+  }
+  .ticker-clients__item {
+    width: clamp(12.125rem ,8.9946045752rem + 12.8104575163vw ,24.375rem)
   }
 }
 @media (min-width:24.43625em)and (max-width:90.06125em) {
@@ -1768,5 +1875,12 @@ body {
   }
   .spollers-mb__summary:hover .spollers-mb__arr path {
     stroke: #d9d9d9
+  }
+  .clients__link:hover .btn-circle__arr svg {
+    -webkit-transform: translate(100%,-100%);
+    transform: translate(100%,-100%)
+  }
+  .ticker-clients__item:hover {
+    border-color: #51ff00
   }
 }
