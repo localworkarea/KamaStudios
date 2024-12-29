@@ -10,7 +10,7 @@
 			opacity: 0;
 		}
 	</style>
-	<link rel="stylesheet" href="css/style.min.css?_v=20241227135243">
+	<link rel="stylesheet" href="css/style.min.css?_v=20241229143608">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,33 +27,42 @@
 				</a>
 				<div class="header__menu menu">
 					<nav data-lenis-prevent class="menu__body">
-						<div class="menu__lng lng">
-							<ul class="lng__list">
-								<li class="lng__item">
-									<a href="#" class="lng__link _active" aria-label="link to language page">EN</a>
+						<div class="menu__wrapper">
+							<div class="menu__lng lng">
+								<ul class="lng__list">
+									<li class="lng__item">
+										<a href="#" class="lng__link _active" aria-label="link to language page">EN</a>
+									</li>
+									<li class="lng__item">
+										<a href="#" class="lng__link" aria-label="link to language page">UA</a>
+									</li>
+								</ul>
+							</div>
+							<p class="menu__title">Menu</p>
+							<ul class="menu__list">
+								<li class="menu__item">
+									<a href="#" class="menu__link _active" aria-label="link to page">
+										about
+									</a>
 								</li>
-								<li class="lng__item">
-									<a href="#" class="lng__link" aria-label="link to language page">UA</a>
+								<li class="menu__item">
+									<a href="#" class="menu__link" aria-label="link to page">
+										Projects
+									</a>
+								</li>
+								<li class="menu__item">
+									<a href="#" id="toggle" data-popup="#popup" class="menu__link" aria-label="link to page">
+										Let’s сollab
+									</a>
 								</li>
 							</ul>
 						</div>
-						<ul class="menu__list">
-							<li class="menu__item">
-								<a href="#" class="menu__link _active" aria-label="link to page">
-									about
-								</a>
-							</li>
-							<li class="menu__item">
-								<a href="#" class="menu__link" aria-label="link to page">
-									Projects
-								</a>
-							</li>
-							<li class="menu__item">
-								<a href="#" class="menu__link" aria-label="link to page">
-									Let’s сollab
-								</a>
-							</li>
-						</ul>
+						<div class="menu__footer footer-menu">
+							<p class="footer-menu__name">
+								kama.studios
+							</p>
+							<a href="mailto:studios@k-a-m-a.com" class="footer-menu__mail">studios@k-a-m-a.com</a>
+						</div>
 					</nav>
 					<button id="toggle" type="button" class="menu__icon icon-menu" aria-label="open mobile menu"><span></span></button>
 				</div>
@@ -735,9 +744,6 @@
 					</div>
 				</a>
 			</section>
-
-
-
 		</main>
 		<footer class="footer">
 			<div class="footer__container">
@@ -786,10 +792,92 @@
 			</div>
 		</footer>
 	</div>
-	<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js?_v=20241227135243"></script>
-	<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js?_v=20241227135243"></script>
-	<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js?_v=20241227135243"></script>
-	<script src="js/app.min.js?_v=20241227135243"></script>
+	<div id="popup" data-lenis-prevent class="popup">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<div class="popup__body">
+					<button data-close type="button" class="popup__close" aria-label="close modal">
+						<svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M1 1L28 28M1 28L28 1" stroke="#1A1A1A" stroke-width="2" />
+						</svg>
+					</button>
+					<div class="popup__head">
+						<p class="popup__txt split-words">Fill out the brif form and..</p>
+						<div class="popup__title">
+							<p class="split-words">SAY HІ, KAMA
+							</p>
+							<a href="mailto:studios@k-a-m-a.com" class="popup__link"><span>studios@k-a-m-a.com</span></a>
+						</div>
+					</div>
+					<form class="form" data-dev action="#" method="POST">
+						<p class="popup__txt split-words">Are you interested in:</p>
+						<div class="form__checkbox">
+							<div class="checkbox">
+								<input id="check-01" type="checkbox" name="ux-ui" class="checkbox__input">
+								<label for="check-01" class="checkbox__label">UX-UI</label>
+							</div>
+							<div class="checkbox">
+								<input id="check-02" type="checkbox" name="product-design" class="checkbox__input">
+								<label for="check-02" class="checkbox__label">Product design</label>
+							</div>
+							<div class="checkbox">
+								<input id="check-03" type="checkbox" name="web-design" class="checkbox__input">
+								<label for="check-03" class="checkbox__label">Web design</label>
+							</div>
+							<div class="checkbox">
+								<input id="check-04" type="checkbox" name="graphic-design" class="checkbox__input">
+								<label for="check-04" class="checkbox__label">Graphic design</label>
+							</div>
+							<div class="checkbox">
+								<input id="check-05" type="checkbox" name="branding" class="checkbox__input">
+								<label for="check-05" class="checkbox__label">Branding</label>
+							</div>
+							<div class="checkbox">
+								<input id="check-06" type="checkbox" name="naming" class="checkbox__input">
+								<label for="check-06" class="checkbox__label">Naming</label>
+							</div>
+							<div class="checkbox">
+								<input id="check-07" type="checkbox" name="marketing" class="checkbox__input">
+								<label for="check-07" class="checkbox__label">Marketing</label>
+							</div>
+							<div class="checkbox">
+								<input id="check-08" type="checkbox" name="other" class="checkbox__input">
+								<label for="check-08" class="checkbox__label">Other</label>
+							</div>
+						</div>
+
+						<div class="form__items">
+							<div class="form__item">
+								<label for="company-name" class="form__label">Company Name</label>
+								<input id="company-name" type="text" name="CompanyName" class="input" data-required>
+							</div>
+							<div class="form__item">
+								<label for="email" class="form__label">[E-Mail]</label>
+								<input id="email" type="email" name="email" class="input" data-required="email">
+							</div>
+							<div class="form__item">
+								<label for="tel" class="form__label">Phone Number</label>
+								<input id="tel" type="tel" name="tel" class="input">
+							</div>
+							<div class="form__item">
+								<label for="nick" class="form__label">Nickname</label>
+								<input id="nick" type="text" name="Nick" class="input">
+							</div>
+							<div class="form__item item-textarea">
+								<label for="message" class="form__label">Your project details</label>
+								<textarea id="message" class="input"></textarea>
+							</div>
+						</div>
+						<button type="submit" class="form__button" aria-label="submit form button"><span>Send</span></button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js?_v=20241229143608"></script>
+	<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js?_v=20241229143608"></script>
+	<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js?_v=20241229143608"></script>
+	<script src="js/app.min.js?_v=20241229143608"></script>
 </body>
 
 </html>

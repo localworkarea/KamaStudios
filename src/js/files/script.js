@@ -1,5 +1,5 @@
 // Підключення функціоналу "Чертоги Фрілансера"
-import { isMobile } from "./functions.js";
+import { isMobile, bodyLockStatus, bodyLock, bodyUnlock  } from "./functions.js";
 // Підключення списку активних модулів
 import { flsModules } from "./modules.js";
 
@@ -226,6 +226,62 @@ window.addEventListener('DOMContentLoaded', () => {
   }
   updateTeamPicturePadding();
 
+
+  const popups = document.querySelectorAll("[data-popup]");
+  if (popups.length > 0) {
+    // Открытие попапа
+    popups.forEach(trigger => {
+      trigger.addEventListener("click", event => {
+        event.preventDefault();
+        const popupId = trigger.getAttribute("data-popup");
+        const popup = document.querySelector(popupId);
+
+        if (popup) {
+          // Удаляем класс menu-open, если он есть
+          if (document.documentElement.classList.contains("menu-open")) {
+            setTimeout(() => {
+              document.documentElement.classList.remove("menu-open");
+            }, 500);
+          }
+
+          document.documentElement.classList.add("popup-show");
+          popup.classList.add("popup_show");
+          bodyLock(); // Блокировка страницы
+        } else {
+          console.error(`Попап с id ${popupId} не найден.`);
+        }
+      });
+    });
+  }
+
+  // Закрытие попапа
+  const closeButtons = document.querySelectorAll("[data-close]");
+  if (closeButtons.length > 0) {
+    closeButtons.forEach(closeButton => {
+      closeButton.addEventListener("click", () => {
+        const popup = closeButton.closest(".popup");
+        if (popup) {
+          document.documentElement.classList.remove("popup-show");
+          popup.classList.remove("popup_show");
+          bodyUnlock(); 
+        }
+      });
+    });
+  }
+
+  // Закрытие попапа при клике вне его контента
+  const allPopups = document.querySelectorAll(".popup");
+  if (allPopups.length > 0) {
+    allPopups.forEach(popup => {
+      popup.addEventListener("click", event => {
+        if (!event.target.closest(".popup__content")) {
+          document.documentElement.classList.remove("popup-show");
+          popup.classList.remove("popup_show");
+          bodyUnlock();
+        }
+      });
+    });
+  }
 
 // // Инициализация GSAP тикеров
 // const tickers = document.querySelectorAll("[data-ticker]");

@@ -1,12 +1,14 @@
 body::after {
 	content: "";
-	background-color: rgba(0, 0, 0, 0.5);
 	position: fixed;
 	width: 100%;
 	height: 100%;
 	top: 0;
 	left: 0;
 	opacity: 0;
+	backdrop-filter: blur(22.7px);
+	-webkit-backdrop-filter: blur(22.7px);
+	background-color: rgba(26, 26, 26, 0.62);
 	transition: opacity 0.8s ease 0s;
 	pointer-events: none;
 	z-index: 149;
@@ -14,48 +16,178 @@ body::after {
 .popup-show body::after {
 	opacity: 1;
 }
+
+
+%popupTransf {
+	transform: translateY(100%);
+	transition: transform .8s cubic-bezier(.22,.89,.34,.96) .3s;
+}
+
+%popupWordsAnim {
+	transform: translateY(0);
+	transition-delay: calc(0.6s + var(--index) * .03s);
+}
+
+
 .popup {
 	position: fixed;
+	z-index: 150;
 	top: 0;
 	left: 0;
 	bottom: 0;
 	right: 0;
-	padding: 30px 10px;
-	transition: visibility 0.8s ease 0s;
-	visibility: hidden;
+	opacity: 0;
+	transition: opacity 0.2s ease 0.8s;
 	pointer-events: none;
-}
-.popup_show {
-	z-index: 150;
-	visibility: visible;
-	overflow: auto;
-	pointer-events: auto;
-}
-.popup_show .popup__content {
-	visibility: visible;
-	transform: scale(1);
-}
-.popup__wrapper {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	min-height: 100%;
-	flex: 1 1 auto;
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.popup__content {
-	visibility: hidden;
-	transform: scale(0);
-	transition: transform 0.3s ease 0s;
-	background-color: #eee;
-	padding: 20px;
-	width: 100%;
-	max-width: 900px;
-	border-radius: 20px;
-	.lock & {
-		visibility: visible;
+
+	scrollbar-width: none; 
+	-ms-overflow-style: none;
+	&::-webkit-scrollbar {
+    display: none;
+	}
+	&.popup_show {
+		overflow: auto;
+		opacity: 1;
+		pointer-events: auto;
+		transition-delay: 0s;
+	}
+	// .popup__wrapper
+	&__wrapper {
+		display: flex;
+		justify-content: flex-end;
+		min-height: 100%;
+		width: 100%;
+	}
+	// .popup__content
+	&__content {
+		position: relative;
+		color: $black-800;
+		background-color: $gray-200;
+		width: 100%;
+		transition: clip-path .8s ease;
+		clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+		@include adaptiveValue("padding-top", 80, 60,0,1920.98,480.98);
+		@include adaptiveValue("padding-bottom", 11, 60,0,1920.98,480.98);
+		@include adaptiveValue("padding-left", 85, 15,0,1920.98,480.98);
+		@include adaptiveValue("padding-right", 85, 15,0,1920.98,480.98);
+		.popup-show & {
+			clip-path: polygon(0% 0, 100% 0, 100% 100%, 0% 100%);
+		}
+		@media (min-width:$tablet){
+			max-width: 50%;
+		}
+		@media (max-width:$tablet) and (min-width: toEm(600.98)) {
+			max-width: 80%;
+		}
+	}
+	// .popup__body
+	&__body {
+		position: relative;
+		.form {
+			opacity: 0;
+			transform: translateY(5%);
+			transition: transform .8s cubic-bezier(.22,.89,.34,.96) .5s, opacity .8s ease .5s;
+			.popup-show & {
+				opacity: 1;
+				transform: translateY(0%);
+				transition-delay: .6s;
+			}
+		}
+	}
+	// .popup__close
+	&__close {
+		position: absolute;
+		top: 0%;
+		right: 0;
+		transform: translate(0,-120%);
+		opacity: 0;
+		transition: opacity .8s ease .5s;
+		.popup-show & {
+			opacity: 1;
+			transition-delay: .6s;
+		}
+	}
+	// .popup__head
+	&__head {
+		@media (min-width:$mobile){
+			 margin-bottom: toRem(40); 
+		}
+		@media (max-width:$mobile){
+			margin-bottom: toRem(50); 
+		}
+	}
+	// .popup__txt
+	&__txt {
+		&.split-words {
+			overflow: hidden;
+			.word {
+			@extend %popupTransf;
+				.popup-show & {
+					@extend %popupWordsAnim;
+				}
+			}
+		}
+		@include adaptiveValue("font-size", 21, 13,0,1920.98,480.98);
+		@include adaptiveValue("margin-bottom", 39, 20,0,1920.98,480.98);
+	}
+	// .popup__title
+	&__title {
+		font-weight: 600;
+		line-height: 1.2;
+		text-transform: uppercase;
+		@include adaptiveValue("font-size", 57, 25,0,1920.98,480.98);
+		.split-words {
+			overflow: hidden;
+			.word {
+				@extend %popupTransf;
+				.popup-show & {
+					@extend %popupWordsAnim;
+				}
+			}
+		}
+	}
+	// .popup__link
+	&__link {
+		font-weight: 500;
+		position: relative;
+		transition: color .3s ease;
+		overflow: hidden;
+		span {
+			position: relative;
+			display: inline-block;
+		
+			transform: translateY(100%);
+			transition: transform .8s cubic-bezier(.22,.89,.34,.96) .5s;
+				.popup-show & {
+					transform: translateY(0);
+					transition-delay: 0.6s;
+				}
+				&::before {
+					content:'';
+					position: absolute;
+					bottom: toRem(0);
+					width: 100%;
+					background-color: $black-800;
+					transition: background-color .3s ease;
+					@media (min-width:$mobile){
+						height: toRem(4);
+					}
+					@media (max-width:$mobile){
+						height: toRem(2);
+					}
+				}
+		}
+		@media (any-hover: hover){
+			&:hover{
+				color: $gray-600;
+				span {
+					&::before {
+						background-color: $gray-600;
+					}
+				}
+			}
+		}
 	}
 }
+
+

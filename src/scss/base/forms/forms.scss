@@ -1,20 +1,189 @@
-//<FORM>
-// Сніппет (HTML):
-.form {
-	&__row {
+//<INPUT>
+// Сніппет (HTML): inp
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+.input {
+	border-radius: 0 !important;
+	width: 100%;
+	display: block;
+	outline: none;
+	border-bottom: 1px solid $black-800;
+	caret-color: inherit;
+	transition: color .3s ease, border .3s ease;
+	@include adaptiveValue("font-size", 21, 16,0,1920.98,480.98);
+	@include adaptiveValue("min-height", 45, 30,0,1920.98,480.98);
+	@media (min-width:$mobileSmall){
+		padding: 0 toRem(20);
 	}
-	&__column {
+	@media (max-width:$mobileSmall){
+		padding: 0 ;
 	}
-	&__line {
+	&._form-focus {
 	}
-	&__input {
-	}
-	&__button {
-	}
-	&__error {
+	&._form-error {
 	}
 }
-//</FORM>
+.input[placeholder]:not([data-placeholder-nohiden]) {
+	&::placeholder {
+		transition: opacity 0.3s;
+	}
+	&:focus::placeholder {
+		opacity: 0;
+	}
+}
+
+textarea.input {
+	resize: none;
+}
+
+
+.checkbox {
+	position: relative;
+	&._form-error {
+		.checkbox__label {
+			border-color: $pink;
+			background-color: rgba(230, 7, 148, 0.2);
+		}
+	}
+	// .checkbox__input
+	&__input {
+		position: absolute;
+		width: 0;
+		height: 0;
+		opacity: 0;
+		&:focus-visible + .checkbox__label:before {
+			box-shadow: 0 0 5px #000;
+		}
+		&:checked + .checkbox__label {
+			border-color: $neon-green;
+			background-color: rgba(82, 254, 3, 0.24);
+			color: $gray-600;
+		}
+	}
+	// .checkbox__label
+	&__label {
+		cursor: pointer;
+		border-radius: toRem(96);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: color .3s ease, border .3s ease, background-color .3s ease;
+		@include adaptiveValue("font-size", 21, 12,0,1920.98,480.98);
+		@media (any-hover: hover){
+			&:hover{
+				border-color: $neon-green;
+				color: $gray-400;
+			}
+		}
+		@media (min-width:$mobileSmall){
+			border: toRem(2) solid $gray-600;
+			padding: toRem(5) toRem(12);
+		}
+		@media (max-width:$mobileSmall){
+			border: toRem(1) solid $gray-600;
+			padding: toRem(3) toRem(9);
+		}
+	}
+}
+
+
+.form {
+	&._sending {
+		.form__button,
+		.input {
+			opacity: 0.5;
+			pointer-events: none;
+		}
+	}
+	// .form__checkbox
+	&__checkbox {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		@include adaptiveValue("margin-bottom", 90, 26,0,1920.98,480.98);
+		@media (min-width:$mobile){
+			gap: toRem(10) toRem(14);
+		}
+		@media (max-width:$mobile){
+			gap: toRem(10);
+		}
+	}
+	// .form__items
+	&__items {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		@include adaptiveValue("column-gap", 145, 30,0,1920.98,390.98);
+		@include adaptiveValue("row-gap", 48, 38,0,1920.98,820.98);
+		@include adaptiveValue("margin-bottom", 31, 17,0,1920.98,480.98);
+	}
+	// .form__item
+	&__item {
+		&._form-error {
+			color: $pink;
+			.input {
+				color: $pink;
+				border-color: $pink;
+			}
+		}
+		&.item-textarea {
+			grid-column: span 2;
+			.input {
+				padding: toRem(20) toRem(20) 0;
+			}
+		}
+	}
+	// .form__label
+	&__label {
+		@include adaptiveValue("font-size", 21, 13,0,1920.98,480.98);
+	}
+	// .form__button
+	&__button {
+		position: relative;
+		display: grid;
+		place-items: center;
+		margin-inline: auto;
+		aspect-ratio: 1;
+		@include adaptiveValue("width", 200, 125,0,1920.98,480.98);
+		@include adaptiveValue("font-size", 23, 14,0,1920.98,480.98);
+		span {
+			position: relative;
+			z-index: 1;
+		}
+		@media (any-hover: hover){
+			&:hover{
+				&::before {
+					transform: translate(-50%,-50%) scale(1.2);
+				}
+			}
+		}
+		&:before {
+			content:'';
+			position: absolute;
+			z-index: 0;
+			width: 100%;
+			height: 100%;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			border-radius: 50%;
+			background-color: rgba(81, 255, 0, 0.63);
+			transition: transform .5s ease;
+			@media (min-width:$mobileSmall){
+				border: toRem(2.3) solid $neon-green;
+			}
+			@media (max-width:$mobileSmall){
+				border: toRem(1.8) solid $neon-green;
+			}
+		}
+	}
+}
+
 
 // <BUTTONS>
 // Сніппет (HTML): btn

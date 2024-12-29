@@ -5,9 +5,9 @@
   left: 0;
   width: 100%;
   @include adaptiveValue("padding-top", 20, 16,0,1440.98,480.98);
-  @media (min-width:toEm(1200.98)){
-    mix-blend-mode: difference;
-  }
+  // @media (min-width:toEm(1200.98)){
+  //   mix-blend-mode: difference;
+  // }
   // .header__container
   &__container {
     display: flex;
@@ -16,6 +16,8 @@
   }
   // .header__logo
   &__logo {
+    position: relative;
+    z-index: 5;
     opacity: 0;
     transition: opacity .3s ease;
     display: block;
@@ -52,51 +54,66 @@
       opacity: 1; 
     }
   }
-  // .menu__lng
-  &__lng {
-  }
-  // .menu__body
-  &__body {
+	// .menu__wrapper
+	&__wrapper {
+    display: flex;
     @media (min-width:toEm(1200.98)){
-      display: flex;
       align-items: center;
       column-gap: toRem(40);
     }
+    @media (max-width: toEm(1200.98)){
+      flex-direction: column;  
+      justify-content: center;
+      row-gap: toRem(30);
+      flex: 1;
+    }
+	}
+  // .menu__lng
+  &__lng {
+    @media (max-width: toEm(1200.98)){
+      order: 3;
+    }
+  }
+  // .menu__body
+  &__body {
     @media (max-width: toEm(1200.98)) {
       position: fixed;
       width: 100%;
       height: 100%;
-      left: -100%;
+      left: 0%;
       top: 0;
       overflow: auto;
-      padding: toRem(50) toRem(15) toRem(15) toRem(30);
-      transition: left 0.65s;
-      background-color: $black-800;
-      &::before {
-        content: "";
-        position: fixed;
-        width: 100%;
-        height: toRem(70);
-        left: -100%;
-        top: 0;
-        transition: left 0.3s;
-        z-index: 2;
-      }
+      padding: toRem(70) toRem(15) toRem(70);
+      pointer-events: none;
+      opacity: 0;
+      clip-path: polygon(0 0, 100% 0, 100% 0%, 0 0%);
+      transition: clip-path 0.75s ease, opacity .3s ease .6s;
+      background-color: $gray-200;
+      color: $black-800;
+
+      display: flex;
+      flex-direction: column;
+      row-gap: toRem(60);
       .menu-open & {
-        left: 0;
-        &::before {
-          left: 0;
-        }
+        opacity: 1;
+        pointer-events: all;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        transition-delay: 0s;
+        // clip-path
       }
     }
   }
   // .menu__list
   &__list {
     display: flex;
-    align-items: center;
-    column-gap: toRem(40);
+    @media (min-width:toEm(1200.98)){
+      align-items: center;
+      column-gap: toRem(40);
+    }
     @media (max-width:toEm(1200.98)){
-        flex-direction: column;
+      flex-direction: column;
+      row-gap: toRem(20);
+      order: 1;
     }
   }
   // .menu__item
@@ -104,22 +121,57 @@
   }
   // .menu__link
   &__link {
-    color: $gray-200;
     font-weight: 500;
-    font-size: toRem(32);
     text-transform: uppercase;
     @extend %hoverLine;
     // &._active {
-    //   &::before {
-    //     transform: scale(1);
-    //     transform-origin: 0 50%;
-    //   }
-    // }
+      //   &::before {
+        //     transform: scale(1);
+        //     transform-origin: 0 50%;
+        //   }
+        // }
+    @media (min-width:toEm(1200.98)){
+      color: $gray-200;
+      font-size: toRem(32);
+    }
+    @media (max-width: toEm(1200.98)){
+      color: $black-800;
+      font-size: toRem(30);        
+    }
   }
   // .menu__icon
   &__icon {
   }
+  // .menu__footer
+  &__footer {
+  }
+	// .menu__title
+	&__title {
+    @media (min-width:toEm(1200.98)){
+        display: none;
+    }
+    @media (max-width: toEm(1200.98)){
+      font-size: toRem(13);
+      order: 1;
+    }
+	}
 }
+
+.footer-menu {
+  @media (min-width:toEm(1200.98)){
+      display: none;
+  }
+  // .footer-menu__name
+  &__name {
+    font-size: toRem(20);
+    margin-bottom: toRem(27);
+  }
+  // .footer-menu__mail
+  &__mail {
+    font-size: toRem(25);
+  }
+}
+
 
 %hoverLine {
   position: relative;
@@ -163,7 +215,12 @@
         right: toRem(9);
         height: 100%;
         width: toRem(1);
-        background-color: $gray-200;
+        @media (min-width:toEm(1200.98)){
+          background-color: $gray-200;
+        }
+        @media (max-width: toEm(1200.98)){
+          background-color: $black-800;
+        }
       }
     }
   }
@@ -172,10 +229,17 @@
     color: $gray-400;
     @extend %hoverLine;
     &._active {
-      color: $gray-200;
+      @media (min-width:toEm(1200.98)){
+        color: $gray-200;
+      }
+      @media (max-width: toEm(1200.98)){
+          color: $black-800;
+      }
     }
   }
 }
+
+
 
 
 .icon-menu {
@@ -193,12 +257,15 @@
 		&::before,
 		&::after {
 			content: "";
-			transition: all 0.3s ease 0s;
+			transition: all 0.45s ease 0s;
 			right: 0;
 			position: absolute;
 			width: 100%;
 			height: toRem(2);
 			background-color: $gray-200;
+      .menu-open & {
+        background-color: $black-800;
+      }
 		}
 		&::before {
 			top: 0;

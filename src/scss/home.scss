@@ -975,7 +975,7 @@
       top: -50%;
     }
     @media (max-width:$mobile){
-      top: 100%;        
+      top: calc(100% + toRem(5));        
     }
   }
 }

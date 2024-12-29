@@ -47,6 +47,19 @@ body {
   font-kerning: none;
 }
 
+%wordsTrans {
+  &.split-words {
+    overflow: hidden;
+    .word {
+      transform: translateY(100%);
+      transition: transform .55s cubic-bezier(.22,.89,.34,.96);
+    }
+  }
+}
+%wordsAnim {
+  transform: translateY(0);
+  transition-delay: calc(var(--index) * .03s);
+}
 
 // .element {
 //   .line {
