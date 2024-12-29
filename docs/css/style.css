@@ -425,18 +425,18 @@ body::after {
   z-index: 200;
   left: 0;
   top: 0;
-  pointer-events: none;
-  opacity: 0!important;
-  transition: opacity .1s linear
-}
-.loaded .fls-cursor {
-  opacity: 1!important;
-  transition-delay: 1s
+  pointer-events: none
 }
 .fls-cursor__pointer {
   position: fixed;
   width: 1.875rem;
-  height: 1.875rem
+  height: 1.875rem;
+  opacity: 0;
+  transition: opacity .1s linear
+}
+.loaded .fls-cursor__pointer {
+  opacity: 1;
+  transition-delay: 1s
 }
 .fls-cursor__pointer::after {
   content: "";
