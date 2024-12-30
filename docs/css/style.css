@@ -680,9 +680,6 @@ body {
 .loaded.index-page .header__logo {
   transition-delay: 1.4s
 }
-.loaded.index-page .menu {
-  transition-delay: 2.6s
-}
 .header {
   position: fixed;
   z-index: 20;
@@ -2002,13 +1999,16 @@ body {
   }
 }
 @media (min-width:75.06125em) {
+  .loaded.index-page .menu {
+    -webkit-transform: translate(0,0);
+    transform: translate(0,0);
+    transition: -webkit-transform .6s ease 2.6s;
+    transition: transform .6s ease 2.6s;
+    transition: transform .6s ease 2.6s,-webkit-transform .6s ease 2.6s
+  }
   .index-page .menu {
     -webkit-transform: translate(0,-200%);
     transform: translate(0,-200%)
-  }
-  .loaded .menu {
-    -webkit-transform: translate(0,0);
-    transform: translate(0,0)
   }
   .menu__wrapper {
     align-items: center;
@@ -2519,12 +2519,12 @@ body {
   }
 }
 @media (max-width:75.06125em) {
+  .loaded .menu {
+    opacity: 1
+  }
   .menu {
     opacity: 0;
     transition: opacity .3s ease
-  }
-  .loaded .menu {
-    opacity: 1
   }
   .menu__wrapper {
     flex-direction: column;

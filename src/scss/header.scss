@@ -6,7 +6,11 @@
   }
   .menu {
     // .loaded & {
-      transition-delay: 2.6s;
+      // transition-delay: 2.6s;
+      @media (min-width:toEm(1200.98)){
+        transform: translate(0,0%);
+        transition: transform .6s ease 2.6s;
+      }
     // }
   }
 }
@@ -70,22 +74,19 @@
   .index-page & {
     @media (min-width:toEm(1200.98)){
       transform: translate(0,-200%);
-      // transition: transform .6s ease;
+      // transition: transform .6s ease 2.6s;
     }
-
+  }
+  .loaded & {
+    // transition-delay: 2.6s;
+   
+    @media (max-width:toEm(1200.98)){
+      opacity: 1; 
+    }
   }
   @media (max-width:toEm(1200.98)){
     opacity: 0; 
     transition: opacity .3s ease;
-  }
-  .loaded & {
-    // transition-delay: 2.6s;
-    @media (min-width:toEm(1200.98)){
-      transform: translate(0,0%);
-    }
-    @media (max-width:toEm(1200.98)){
-      opacity: 1; 
-    }
   }
 	// .menu__wrapper
 	&__wrapper {

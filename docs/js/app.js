@@ -5253,6 +5253,7 @@
                 block.classList.add("_play");
                 video.play();
                 video.setAttribute("controls", true);
+                video.muted = false;
             }));
         }));
         let lastWidth = window.innerWidth;
