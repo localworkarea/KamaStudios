@@ -101,8 +101,8 @@
     grid-template-columns: 40% 60% ;
     grid-template-rows: 40% 50% 10% ;
     .step-3 & {
-      // transition: grid-template-rows .45s ease .3s;
-      // grid-template-rows: 80% 20% 0% ;
+      transition: grid-template-rows .45s ease .3s;
+      grid-template-rows: 80% 20% 0% ;
     }
   }
   // .figures__left
@@ -267,6 +267,7 @@
 }
 
 .right-figure {
+  overflow: hidden;
 	// .right-figure__body
 	&__body {
     position: absolute;
@@ -330,7 +331,7 @@
     bottom: 0;
     left: 0;
     height: auto;
-    .rect-pink-01 {
+    // .rect-pink-01 {
       transition: transform .45s ease;
       transform: translate(-100%,0);
       .loaded & {
@@ -342,7 +343,7 @@
         transition-delay: 0s;
       }
   
-    }
+    // }
     @media (min-width:$mobile){
       width: 7.6vw;
       
