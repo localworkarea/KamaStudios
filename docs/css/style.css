@@ -2680,11 +2680,6 @@ body {
     grid-template-columns: 40% 60%;
     grid-template-rows: 40% 50% 10%
   }
-  .step-3 .figures {
-    transition: grid-template-rows .45s ease .3s;
-    transition: grid-template-rows .45s ease .3s,-ms-grid-rows .45s ease .3s;
-    grid-template-rows: 80% 20% 0
-  }
   .figures__txt-wr {
     grid-row: 2/3;
     grid-column: span 2;

@@ -91,28 +91,18 @@
   z-index: 2;
 
   display: grid;
-  // grid-template-columns:1fr 0fr ;
-  // grid-template-rows: 1fr 0fr ;
-  // transition: grid-template-columns .45s ease, grid-template-rows .45s ease;
-
-  // opacity: 0;
-
 
   @media (min-width:$mobile){
-    // grid-template-columns: 0.35fr 0.65fr ;
-    // grid-template-rows: 0.75fr 0.25fr ;
     grid-template-columns: 35% 65%;
     grid-template-rows: 75% 25% ;
     
   }
   @media (max-width:$mobile){
-    // grid-template-columns: 0.4fr 0.6fr ;
-    // grid-template-rows: 0.40fr .50fr 0.10fr ;
     grid-template-columns: 40% 60% ;
     grid-template-rows: 40% 50% 10% ;
     .step-3 & {
-      transition: grid-template-rows .45s ease .3s;
-      grid-template-rows: 80% 20% 0% ;
+      // transition: grid-template-rows .45s ease .3s;
+      // grid-template-rows: 80% 20% 0% ;
     }
   }
   // .figures__left
@@ -125,7 +115,6 @@
   // .figures__right
   &__right {
     position: relative;
-    // background-color: rgb(255, 0, 0, .1);
     @media (min-width:$mobile){
       
       display: flex;
@@ -157,17 +146,10 @@
 
     transition: transform .65s ease, opacity .2s ease;
     transform: translate(calc(-100% - toRem(20)),0);
-
     font-weight: 500;
     line-height: 0.8;
-    // @include adaptiveValue("font-size", 117, 90,2,1920.98,1440.98);
-    // @include adaptiveValue("font-size", 90, 35,3,1440.98,390.98);
     @include adaptiveValue("font-size", 117, 35,0,1920.98,390.98);
 
-
-    // .step-3 & {
-    //   transform: translate(0,0%);
-    // }
     .loaded & {
       transform: translate(0,0%);
       transition-delay: 1.7s;
@@ -181,16 +163,12 @@
       font-weight: 400;
       position: relative;
       left: -3%;
-      // @include adaptiveValue("font-size", 80, 60,2,1920.98,1440.98);
-      // @include adaptiveValue("font-size", 60, 25,3,1440.98,390.98);
-
       @include adaptiveValue("font-size", 80, 25,0,1920.98,390.98);
     }
   }
   // .figures__bottom
   &__bottom {
     position: relative;
-    // background-color: rgb(255, 255, 0, 0.1);
     @media (min-width:$mobile){
       grid-column: 2/3;
     }
@@ -227,9 +205,6 @@
 	&__title-body {
     transition: transform .5s ease;
     transform: translate(0,100%);
-    // .step-3 & {
-    //   transform: translate(0,0%);
-    // }
     .loaded & {
       transform: translate(0,0%);
       transition-delay: 1.7s;
@@ -239,15 +214,11 @@
 	// .figures__title
 	&__title {
     margin-bottom: toRem(10);
-    // @include adaptiveValue("font-size", 31, 24,2,1920.98,1440.98);
-    // @include adaptiveValue("font-size", 24, 10,3,1440.98,390.98);
     @include adaptiveValue("font-size", 31, 10,0,1920.98,390.98);
 	}
 	// .figures__subtitle
 	&__subtitle {
     max-width: 33ch;
-    // @include adaptiveValue("font-size", 18, 14,2,1920.98,1440.98);
-    // @include adaptiveValue("font-size", 14, 7,3,1440.98,390.98);
     @include adaptiveValue("font-size", 18, 7,0,1920.98,390.98);
 	}
 	// .figures__sub-txt-01
@@ -275,9 +246,6 @@
       right: 21.5vw;
       transition-delay: 1.65s;
     }
-    // right: 21.5vw;
-    // transition: transform .4s ease;
-    // transform: translate(100%,0);
   }
 	// .figures__sub-txt-03
 	&__sub-txt-03 {
@@ -304,11 +272,9 @@
     position: absolute;
     top: 0;
     @media (min-width:$mobile){
-      // position: absolute;
       right: 0;
     }
     @media (max-width:$mobile){
-      // position: relative;
       left: 0;        
     }
   }
@@ -324,10 +290,6 @@
     .rect-green {
       transition: transform .55s ease;
       transform: translate(-60%,0);
-      // .step-3 & {
-      //   transform: translate(0,0%);
-      //   transition-delay: 0.5s;
-      // }
       .loaded & {
         transform: translate(0,0%);
         transition-delay: 2.2s;
@@ -340,10 +302,6 @@
     .rect-prp-02 {
       transition: transform .55s ease, opacity .3s ease;
       transform: translate(60%,0);
-      // .step-3 & {
-      //   transform: translate(0,0%);
-      //   transition-delay: 0.65s;
-      // }
       .loaded & {
         transform: translate(0,0%);
         transition-delay: 2.35s;
@@ -356,10 +314,6 @@
     .rect-prp-01 {
       transition: transform .55s ease, opacity .3s ease;
       transform: translate(0,20%);
-      // .step-3 & {
-      //   transform: translate(0,0%);
-      //   transition-delay: 0.25s;
-      // }
       .loaded & {
         transform: translate(0,0%);
         transition-delay: 1.95s;

@@ -54,6 +54,7 @@ const config = {
 		port: 'auto',
 		hot: true,
 		host: 'local-ip', // localhost
+		// host: '192.168.0.103', // localhost
 		//В режимі розробника папка 
 		// результатом (dist) буде створюватися на диску)
 		//devMiddleware: {
