@@ -682,11 +682,6 @@
   justify-content: space-between;
   gap: toRem(20);
 
-  // @include adaptiveValue("padding-top", 44,34,2,1920.98,1440.98);
-  // @include adaptiveValue("padding-top", 34,16,3,1440.98,480.98);
-  // @include adaptiveValue("padding-bottom", 44,34,2,1920.98,1440.98);
-  // @include adaptiveValue("padding-bottom", 34,16,3,1440.98,480.98);
-  
   @include adaptiveValue("padding-top", 44,16,0,1920.98,480.98);
   @include adaptiveValue("padding-bottom", 44,16,0,1920.98,480.98);
   @media (min-width:toEm(1200.98)){
@@ -1104,3 +1099,216 @@
     }
 	}
 }
+
+
+// ==================================================================
+// ----------------------------------------------------------
+// ==== PROJECTS ======================================
+.projects {
+  @include adaptiveValue("padding-top", 500, 140,0,1920.98,480.98);
+  // .projects__container
+  &__container {
+  }
+  // .projects__block
+  &__block {
+    &.block-clm {
+      // .block-clm__left
+      &__left {
+      }
+      // .block-clm__title
+      &__title {
+      }
+      // .block-clm__right
+      &__right {
+      }
+      // .block-clm__body
+      &__body {
+      }
+      // .block-clm__txt
+      &__txt {
+      }
+    }
+  }
+  // .projects__nav
+  &__nav {
+    @include adaptiveValue("margin-bottom", 104, 30,0,1920.98,480.98);
+  }
+  // .projects__items
+  &__items {
+    display: grid;
+    column-gap: toRem(32);
+    @include adaptiveValue("row-gap", 135, 32,0,1920.98,480.98);
+    @include adaptiveValue("margin-bottom", 75, 36,0,1920.98,480.98);
+    @media (min-width:toEm(600.98)){
+      grid-template-columns: repeat(2,1fr);
+    }
+    .item-project {
+      // Стили для всех 1-х элементов (1, 6, 11, ...)
+      &:nth-child(5n + 1) {
+        @media (min-width:toEm(600.98)){
+          width: 97%;
+        }
+      }
+      // Стили для всех 2-х элементов (2, 7, 12, ...)
+      &:nth-child(5n + 2) {
+        @media (min-width:toEm(600.98)){
+          width: 86%;
+          margin-left: auto;
+        }
+      }
+      // Стили для всех 3-х элементов (3, 8, 13, ...)
+      &:nth-child(5n + 3) {
+        @media (min-width:toEm(600.98)){
+          width: 87%;
+        }
+      }
+      // Стили для всех 4-х элементов (4, 9, 14, ...)
+      &:nth-child(5n + 4) {
+        @media (min-width:toEm(600.98)){
+          width: 94%;
+          margin-left: auto;
+        }
+      }
+      // Стили для всех 5-х элементов (5, 10, 15, ...)
+      &:nth-child(5n + 5) {
+        @media (min-width:toEm(600.98)){
+          grid-column: span 2;
+          margin-left: auto;
+          width: 88%;
+        }
+      }
+    }
+  }
+  // .projects__link-body
+  &__link-body {
+    width: fit-content;
+    @media (min-width:toEm(820.98)){
+        margin-left: auto;
+    }
+    @media (max-width: toEm(820.98)){
+        margin-inline: auto;
+    }
+  }
+  // .projects__link
+  &__link {
+  }
+	// .projects__lets
+	&__lets {
+    border-top: toRem(2) solid $gray-600;
+    @media (max-width:$mobileSmall){
+       border-width: toRem(1); 
+    }
+	}
+}
+
+.nav-projects {
+  // .nav-projects__list
+  &__list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    @include adaptiveValue("column-gap", 29, 10,0,1920.98,480.98);
+    @include adaptiveValue("row-gap", 29, 16,0,1920.98,480.98);
+    @media (min-width:$tablet){
+       max-width: 90%; 
+    }
+  }
+  // .nav-projects__item
+  &__item {
+  }
+  // .nav-projects__link
+  &__link {
+    color: $gray-500;
+    display: flex;
+		align-items: center;
+		justify-content: center;
+    border: toRem(2) solid $gray-600;
+    border-radius: toRem(96);
+    transition: background-color .3s ease, border .3s ease, color .3s ease;
+    @include adaptiveValue("font-size", 31, 14,0,1920.98,480.98);
+    @include adaptiveValue("padding-top", 10, 6,0,1920.98,480.98);
+    @include adaptiveValue("padding-bottom", 10, 6,0,1920.98,480.98);
+    @include adaptiveValue("padding-left", 26, 10,0,1920.98,480.98);
+    @include adaptiveValue("padding-right", 26, 10,0,1920.98,480.98);
+    @media (max-width:$mobileSmall){
+       border-width: toRem(1); 
+    }
+    @media (any-hover: hover){
+      &:hover{
+        color: $gray-200;
+        border-color: $neon-green;
+      }
+    }
+    &:active {
+      color: $gray-200;
+      border-color: $neon-green;
+      background-color: rgba(83, 254, 3, 0.24);
+    }
+    &._active {
+      color: $gray-200;
+      border-color: $neon-green;
+    }
+  }
+}
+
+.item-project {
+  // .item-project__link
+  &__link {
+    display: block;
+    @media (any-hover: hover){
+      &:hover{
+        .item-project__img {
+          transform: scale(1);
+        }
+        .item-project__arrow {
+          transform: scale(1.4);
+          path {
+            fill: $black-800;
+          }
+        }
+      }
+    }
+  }
+	// .item-project__head
+	&__head {
+    overflow: hidden;
+    position: relative;
+    @include adaptiveValue("margin-bottom", 73, 32,0,1920.98,480.98);
+	}
+	// .item-project__img
+	&__img {
+    width: 100%;
+    height: auto;
+    transform: scale(1.05);
+    transition: transform .5s ease;
+    transform-origin: 50% 50%;
+	}
+	// .item-project__arrow
+	&__arrow {
+    position: absolute;
+    z-index: 2;
+    transition: transform .4s ease;
+    transform-origin: 100% 0%;
+    @include adaptiveValue("top", 52, 23,0,1920.98,480.98);
+    @include adaptiveValue("right", 52, 23,0,1920.98,480.98);
+    path {
+      transition: fill .4s ease;
+    }
+	}
+  // .item-project__footer
+  &__footer {
+  }
+  // .item-project__title
+  &__title {
+    text-transform: uppercase;
+    @include adaptiveValue("font-size", 55, 25,0,1920.98,480.98);
+    @include adaptiveValue("margin-bottom", 29, 14,0,1920.98,480.98);
+  }
+  // .item-project__subtitle
+  &__subtitle {
+    line-height: 1.2;
+    color: $gray-500;
+    @include adaptiveValue("font-size", 31, 14,0,1920.98,480.98);
+  }
+}
+

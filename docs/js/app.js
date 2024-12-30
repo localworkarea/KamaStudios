@@ -82,19 +82,19 @@
         const wrapper = document.querySelector("[data-custom-cursor]") ? document.querySelector("[data-custom-cursor]") : document.documentElement;
         if (wrapper && !isMobile.any()) {
             const cursor = document.createElement("div");
-            cursor.classList.add("fls-cursor");
+            cursor.classList.add("cursor");
             cursor.style.opacity = 0;
-            cursor.insertAdjacentHTML("beforeend", `<span class="fls-cursor__pointer"></span>`);
-            isShadowTrue ? cursor.insertAdjacentHTML("beforeend", `<span class="fls-cursor__shadow"></span>`) : null;
+            cursor.insertAdjacentHTML("beforeend", `<span class="cursor__pointer"></span>`);
+            isShadowTrue ? cursor.insertAdjacentHTML("beforeend", `<span class="cursor__shadow"></span>`) : null;
             wrapper.append(cursor);
-            const cursorPointer = document.querySelector(".fls-cursor__pointer");
+            const cursorPointer = document.querySelector(".cursor__pointer");
             const cursorPointerStyle = {
                 width: cursorPointer.offsetWidth,
                 height: cursorPointer.offsetHeight
             };
             let cursorShadow, cursorShadowStyle;
             if (isShadowTrue) {
-                cursorShadow = document.querySelector(".fls-cursor__shadow");
+                cursorShadow = document.querySelector(".cursor__shadow");
                 cursorShadowStyle = {
                     width: cursorShadow.offsetWidth,
                     height: cursorShadow.offsetHeight
@@ -1870,15 +1870,28 @@
         } ]);
         return SplitType;
     }();
+    const heroSection = document.querySelector(".hero");
+    const projectsSection = document.querySelector(".projects");
+    if (heroSection) document.documentElement.classList.add("index-page");
+    if (projectsSection) document.documentElement.classList.add("projects-page");
     const lenis = new Lenis({
         lerp: .1
     });
-    lenis.on("scroll", ScrollTrigger.update);
-    gsap.ticker.add((time => {
-        lenis.raf(time * 1e3);
-    }));
-    gsap.ticker.lagSmoothing(0);
-    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+    const indexPage = document.querySelector(".index-page");
+    if (indexPage) {
+        lenis.on("scroll", ScrollTrigger.update);
+        gsap.ticker.add((time => {
+            lenis.raf(time * 1e3);
+        }));
+        gsap.ticker.lagSmoothing(0);
+        gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+    } else {
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+    }
     window.addEventListener("load", (function() {
         const heroSec = document.querySelector(".hero");
         const heroBody = document.querySelector(".hero__body");
@@ -1952,25 +1965,27 @@
             }));
         }
         initSplitType();
-        ScrollTrigger.refresh();
-        function createGSAPanim() {
-            ScrollTrigger.getAll().forEach((trigger => trigger.kill()));
-            const infoHero = document.querySelector(".info-hero");
-            document.querySelector(".info-hero__txt");
-            const infoHeroWords = document.querySelectorAll(".info-hero__txt .word");
-            if (infoHeroWords.length > 0) gsap.to(infoHeroWords, {
-                opacity: 1,
-                stagger: .1,
-                ease: "none",
-                scrollTrigger: {
-                    trigger: infoHero,
-                    start: "top 70%",
-                    end: "110% bottom",
-                    scrub: true
-                }
-            });
+        if (indexPage) {
+            ScrollTrigger.refresh();
+            function createGSAPanim() {
+                ScrollTrigger.getAll().forEach((trigger => trigger.kill()));
+                const infoHero = document.querySelector(".info-hero");
+                document.querySelector(".info-hero__txt");
+                const infoHeroWords = document.querySelectorAll(".info-hero__txt .word");
+                if (infoHeroWords.length > 0) gsap.to(infoHeroWords, {
+                    opacity: 1,
+                    stagger: .1,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: infoHero,
+                        start: "top 70%",
+                        end: "110% bottom",
+                        scrub: true
+                    }
+                });
+            }
+            createGSAPanim();
         }
-        createGSAPanim();
         const spollers = document.querySelectorAll("[data-spoller]");
         if (spollers.length) spollers.forEach((spoller => {
             const spollerItems = spoller.querySelectorAll("[data-spoller-item]");

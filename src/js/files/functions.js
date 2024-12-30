@@ -603,20 +603,20 @@ export function customCursor(isShadowTrue) {
 	if (wrapper && !isMobile.any()) {
 		// Створюємо та додаємо об'єкт курсору
 		const cursor = document.createElement('div');
-		cursor.classList.add('fls-cursor');
+		cursor.classList.add('cursor');
 		cursor.style.opacity = 0;
-		cursor.insertAdjacentHTML('beforeend', `<span class="fls-cursor__pointer"></span>`);
-		isShadowTrue ? cursor.insertAdjacentHTML('beforeend', `<span class="fls-cursor__shadow"></span>`) : null;
+		cursor.insertAdjacentHTML('beforeend', `<span class="cursor__pointer"></span>`);
+		isShadowTrue ? cursor.insertAdjacentHTML('beforeend', `<span class="cursor__shadow"></span>`) : null;
 		wrapper.append(cursor);
 
-		const cursorPointer = document.querySelector('.fls-cursor__pointer');
+		const cursorPointer = document.querySelector('.cursor__pointer');
 		const cursorPointerStyle = {
 			width: cursorPointer.offsetWidth,
 			height: cursorPointer.offsetHeight
 		}
 		let cursorShadow, cursorShadowStyle;
 		if (isShadowTrue) {
-			cursorShadow = document.querySelector('.fls-cursor__shadow');
+			cursorShadow = document.querySelector('.cursor__shadow');
 			cursorShadowStyle = {
 				width: cursorShadow.offsetWidth,
 				height: cursorShadow.offsetHeight

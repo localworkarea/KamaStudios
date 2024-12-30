@@ -1,3 +1,16 @@
+.loaded.index-page {
+  .header__logo {
+    // .loaded & {
+      transition-delay: 1.4s;
+    // }
+  }
+  .menu {
+    // .loaded & {
+      transition-delay: 2.6s;
+    // }
+  }
+}
+
 .header {
   position: fixed;
   z-index: 20;
@@ -24,11 +37,17 @@
     @include adaptiveValue("width", 40, 23,0,1440.98,480.98);
     .loaded & {
       opacity: 1;
-      transition-delay: 1.4s;
     }
     svg,img {
       width: 100%;
       height: auto;
+    }
+    svg {
+      path {
+        .projects-page & {
+          fill: $neon-green;
+        }
+      }
     }
   }
   // .header__menu
@@ -37,16 +56,19 @@
 }
 
 .menu {
-  @media (min-width:toEm(1200.98)){
-    transform: translate(0,-200%);
-    transition: transform .6s ease;
+  .index-page & {
+    @media (min-width:toEm(1200.98)){
+      transform: translate(0,-200%);
+      transition: transform .6s ease;
+    }
+
   }
   @media (max-width:toEm(1200.98)){
     opacity: 0; 
     transition: opacity .3s ease;
   }
   .loaded & {
-    transition-delay: 2.6s;
+    // transition-delay: 2.6s;
     @media (min-width:toEm(1200.98)){
       transform: translate(0,0%);
     }

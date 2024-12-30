@@ -6,19 +6,38 @@ import { flsModules } from "./modules.js";
 import Lenis from 'lenis'
 import SplitType from 'split-type'
 
+const heroSection = document.querySelector('.hero');
+const projectsSection = document.querySelector('.projects');
+if (heroSection) {
+  document.documentElement.classList.add('index-page');
+}
+if (projectsSection) {
+  document.documentElement.classList.add('projects-page');
+}
+
 // Initialize Lenis
 const lenis = new Lenis({
   lerp: 0.1,             // Определяет инерцию (чем ближе к 1, тем медленнее скролл)
   // mouseMultiplier: 1,    // Чувствительность прокрутки мыши (увеличивайте, чтобы сделать скролл быстрее)
 })
+const indexPage = document.querySelector('.index-page');
 
-lenis.on('scroll', ScrollTrigger.update)
-gsap.ticker.add((time)=>{
-  lenis.raf(time * 1000)
-})
-gsap.ticker.lagSmoothing(0)
-
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+if (indexPage) {
+  lenis.on('scroll', ScrollTrigger.update)
+  gsap.ticker.add((time)=>{
+    lenis.raf(time * 1000)
+  })
+  gsap.ticker.lagSmoothing(0)
+  
+  gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+} else {
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  
+  requestAnimationFrame(raf);
+}
 
 window.addEventListener("load", function () {
   const heroSec = document.querySelector('.hero');
@@ -128,33 +147,34 @@ window.addEventListener('DOMContentLoaded', () => {
   initSplitType();
   // =============================================
 
-  ScrollTrigger.refresh();
-
-  
-  function createGSAPanim() {
-    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+  if (indexPage) {
+    ScrollTrigger.refresh();
     
-    const infoHero = document.querySelector('.info-hero');
-    const infoHeroTxt = document.querySelector('.info-hero__txt');
-    const infoHeroWords = document.querySelectorAll('.info-hero__txt .word');
-
-    if (infoHeroWords.length > 0) {
-      gsap.to(infoHeroWords, {
-        opacity: 1,
-        stagger: 0.1,
-        ease: "none",
-        scrollTrigger: {
-          trigger: infoHero,
-          start: "top 70%",
-          end: "110% bottom",
-          scrub: true,
-          // markers: true,
-        },
-      });
+    function createGSAPanim() {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      
+      const infoHero = document.querySelector('.info-hero');
+      const infoHeroTxt = document.querySelector('.info-hero__txt');
+      const infoHeroWords = document.querySelectorAll('.info-hero__txt .word');
+  
+      if (infoHeroWords.length > 0) {
+        gsap.to(infoHeroWords, {
+          opacity: 1,
+          stagger: 0.1,
+          ease: "none",
+          scrollTrigger: {
+            trigger: infoHero,
+            start: "top 70%",
+            end: "110% bottom",
+            scrub: true,
+            // markers: true,
+          },
+        });
+      }
+  
     }
-
+    createGSAPanim();
   }
-  createGSAPanim();
 
 
   const spollers = document.querySelectorAll('[data-spoller]');

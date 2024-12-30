@@ -47,19 +47,6 @@ body {
   font-kerning: none;
 }
 
-%wordsTrans {
-  &.split-words {
-    overflow: hidden;
-    .word {
-      transform: translateY(100%);
-      transition: transform .55s cubic-bezier(.22,.89,.34,.96);
-    }
-  }
-}
-%wordsAnim {
-  transform: translateY(0);
-  transition-delay: calc(var(--index) * .03s);
-}
 
 // .element {
 //   .line {
@@ -95,6 +82,9 @@ body {
 .pdd-tb-160 {
   @include adaptiveValue("padding-top", 160, 80,0,1440.98,480.98);
   @include adaptiveValue("padding-bottom", 160, 80,0,1440.98,480.98);
+}
+.pdd-b-130 {
+  @include adaptiveValue("padding-bottom", 170, 30,0,1440.98,480.98);
 }
 .pdd-tb {
   @include adaptiveValue("padding-top", 100, 60,0,1440.98,480.98);
