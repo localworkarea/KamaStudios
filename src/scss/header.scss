@@ -17,10 +17,21 @@
   top: 0;
   left: 0;
   width: 100%;
+  padding-bottom: toRem(10);
+  transition: background-color .45s ease;
   @include adaptiveValue("padding-top", 20, 16,0,1440.98,480.98);
-  // @media (min-width:toEm(1200.98)){
-  //   mix-blend-mode: difference;
-  // }
+  // @include adaptiveValue("padding-bottom", 20, 16,0,1440.98,480.98);
+
+  &._header-scroll {
+    .index-page &,
+    .projects-page & {
+      background-color: rgb(26, 26, 26, 0.2);
+    }
+    .project-page & {
+      background-color: rgb(255, 255, 255, 0.1);
+    }
+  }
+
   // .header__container
   &__container {
     display: flex;
@@ -59,7 +70,7 @@
   .index-page & {
     @media (min-width:toEm(1200.98)){
       transform: translate(0,-200%);
-      transition: transform .6s ease;
+      // transition: transform .6s ease;
     }
 
   }
@@ -155,6 +166,9 @@
     @media (min-width:toEm(1200.98)){
       color: $gray-200;
       font-size: toRem(32);
+      .project-page & {
+        color: $black-800;
+      }
     }
     @media (max-width: toEm(1200.98)){
       color: $black-800;
@@ -208,6 +222,9 @@
     transform: scale(0, 1);
     transform-origin: 100% 50%;
     transition: transform .8s cubic-bezier(0.215, 0.61, 0.355, 1);
+    .project-page & {
+      background-color: $black-800;
+    }
   }
   @media (any-hover: hover){
     &:hover{
@@ -239,6 +256,9 @@
         width: toRem(1);
         @media (min-width:toEm(1200.98)){
           background-color: $gray-200;
+          .project-page & {
+            background-color: $black-800;
+          }
         }
         @media (max-width: toEm(1200.98)){
           background-color: $black-800;
@@ -250,9 +270,15 @@
   &__link {
     color: $gray-400;
     @extend %hoverLine;
+    .project-page & {
+      color: $black-800;
+    }
     &._active {
       @media (min-width:toEm(1200.98)){
         color: $gray-200;
+        .project-page & {
+          color: $gray-600;
+        }
       }
       @media (max-width: toEm(1200.98)){
           color: $black-800;
@@ -286,6 +312,9 @@
 			height: toRem(2);
 			background-color: $gray-200;
       .menu-open & {
+        background-color: $black-800;
+      }
+      .project-page & {
         background-color: $black-800;
       }
 		}

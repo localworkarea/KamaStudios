@@ -90,6 +90,16 @@ body {
   @include adaptiveValue("padding-top", 100, 60,0,1440.98,480.98);
   @include adaptiveValue("padding-bottom", 100, 60,0,1440.98,480.98);
 }
+.pdd-t-100 {
+  @include adaptiveValue("padding-top", 130, 30,0,1920.98,480.98); 
+}
+.pdd-b-100 {
+  @include adaptiveValue("padding-bottom", 130, 30,0,1920.98,480.98); 
+}
+.pdd-tb-100 {
+  @include adaptiveValue("padding-top", 130, 30,0,1920.98,480.98); 
+  @include adaptiveValue("padding-bottom", 130, 30,0,1920.98,480.98); 
+}
 
 .txt-42 {
   @include adaptiveValue("font-size", 55, 20,0,1920.98,480.98);
@@ -106,9 +116,6 @@ body {
   font-weight: 500;
   text-transform: uppercase;
   line-height: 1.3;
-  // @include adaptiveValue("font-size", 31, 24,2,1920.98,1440.98);
-  // @include adaptiveValue("font-size", 24, 13,3,1440.98,480.98);
-
   @include adaptiveValue("font-size", 31, 13,0,1920.98,480.98);
 }
 .txt-20 {
@@ -120,7 +127,15 @@ body {
   @include adaptiveValue("font-size", 26, 15,0,1920.98,480.98);
 }
 
-
+.bg-gray-200 {
+  background-color: $gray-200;
+}
+.bg-black-800 {
+  background-color: $black-800;
+}
+.bg-neon-green {
+  background-color: $neon-green;
+}
 
 
 .block-clm {

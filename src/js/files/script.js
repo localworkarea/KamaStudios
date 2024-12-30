@@ -8,11 +8,15 @@ import SplitType from 'split-type'
 
 const heroSection = document.querySelector('.hero');
 const projectsSection = document.querySelector('.projects');
+const projectSection = document.querySelector('.project');
 if (heroSection) {
   document.documentElement.classList.add('index-page');
 }
 if (projectsSection) {
   document.documentElement.classList.add('projects-page');
+}
+if (projectSection) {
+  document.documentElement.classList.add('project-page');
 }
 
 // Initialize Lenis
@@ -302,6 +306,49 @@ window.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+
+//   // Выбираем все изображения внутри .block-b-project__front
+// const images = document.querySelectorAll('.block-b-project__front img');
+// if (images.length > 0) {
+//   images.forEach((img) => {
+//     function adjustImageSize() {
+//       if (img.naturalWidth < img.naturalHeight) {
+//         img.style.width = 'auto';
+//         img.style.height = '49%';
+//       } else {
+//         img.style.width = '60%';
+//         img.style.height = 'auto';
+//       }
+//     }
+
+//     if (img.complete) {
+//       adjustImageSize();
+//     } else {
+//       img.onload = adjustImageSize;
+//     }
+//   });
+// }
+
+const videoBlocks = document.querySelectorAll('.video-project__body');
+
+if (videoBlocks.length > 0) {
+  videoBlocks.forEach((block) => {
+    const video = block.querySelector('video');
+    const playButton = block.querySelector('.video-project__play');
+
+    if (video && playButton) {
+      playButton.addEventListener('click', () => {
+        block.classList.add('_play');
+        video.play();
+        video.setAttribute('controls', true);
+      });
+    }
+  });
+}
+
+
+
 
 // // Инициализация GSAP тикеров
 // const tickers = document.querySelectorAll("[data-ticker]");
