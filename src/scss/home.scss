@@ -1262,9 +1262,6 @@
         }
         .item-project__arrow {
           transform: scale(1.4);
-          path {
-            fill: $black-800;
-          }
         }
       }
     }
@@ -1289,6 +1286,7 @@
     z-index: 2;
     transition: transform .4s ease;
     transform-origin: 100% 0%;
+    @include adaptiveValue("width", 55, 24,0,1920.98,480.98);
     @include adaptiveValue("top", 52, 23,0,1920.98,480.98);
     @include adaptiveValue("right", 52, 23,0,1920.98,480.98);
     path {

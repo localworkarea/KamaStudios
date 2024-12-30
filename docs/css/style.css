@@ -1925,6 +1925,9 @@ body {
     margin-bottom: 4.5625rem
   }
   .item-project__arrow {
+    width: 3.4375rem
+  }
+  .item-project__arrow {
     top: 3.25rem
   }
   .item-project__arrow {
@@ -2463,6 +2466,9 @@ body {
     margin-bottom: 2rem
   }
   .item-project__arrow {
+    width: 1.5rem
+  }
+  .item-project__arrow {
     top: 1.4375rem
   }
   .item-project__arrow {
@@ -2718,6 +2724,9 @@ body {
     margin-bottom: clamp(2rem ,1.1440894097rem + 2.8472222222vw ,4.5625rem)
   }
   .item-project__arrow {
+    width: clamp(1.5rem ,.8528480903rem + 2.1527777778vw ,3.4375rem)
+  }
+  .item-project__arrow {
     top: clamp(1.4375rem ,.8320998264rem + 2.0138888889vw ,3.25rem)
   }
   .item-project__arrow {
@@ -2915,8 +2924,5 @@ body {
   .item-project__link:hover .item-project__arrow {
     -webkit-transform: scale(1.4);
     transform: scale(1.4)
-  }
-  .item-project__link:hover .item-project__arrow path {
-    fill: #1a1a1a
   }
 }
