@@ -33,13 +33,13 @@
     }
     &.step-3 {
       &::before {
-        height: 100vh !important;
         @media (min-width:$mobile){
+          height: 100vh !important;
           transition-delay: 0s;
         }
-        @media (max-width:$mobile){
-          transition-delay: 0.3s;
-        }
+        // @media (max-width:$mobile){
+        //   transition-delay: 0.3s;
+        // }
       }
     }
     &::before {
@@ -100,10 +100,10 @@
   @media (max-width:$mobile){
     grid-template-columns: 40% 60% ;
     grid-template-rows: 40% 50% 10% ;
-    .step-3 & {
-      transition: grid-template-rows .45s ease .3s;
-      grid-template-rows: 80% 20% 0% ;
-    }
+    // .step-3 & {
+      // transition: grid-template-rows .45s ease .3s;
+      // grid-template-rows: 80% 20% 0% ;
+    // }
   }
   // .figures__left
   &__left {
@@ -129,7 +129,8 @@
     overflow: hidden;
     @media (min-width:$mobile){
       padding-top: toRem(100);
-      margin-bottom: 13.5vw;
+      // margin-bottom: 13.5vw;
+      margin-bottom: 12.5vw;
     }
     @media (max-width:$mobile){
        grid-row: 2/3;
@@ -148,7 +149,7 @@
     transform: translate(calc(-100% - toRem(20)),0);
     font-weight: 500;
     line-height: 0.8;
-    @include adaptiveValue("font-size", 117, 35,0,1920.98,390.98);
+    @include adaptiveValue("font-size", 74, 35,0,1440.98,390.98);
 
     .loaded & {
       transform: translate(0,0%);
@@ -163,7 +164,7 @@
       font-weight: 400;
       position: relative;
       left: -3%;
-      @include adaptiveValue("font-size", 80, 25,0,1920.98,390.98);
+      @include adaptiveValue("font-size", 55, 25,0,1440.98,390.98);
     }
   }
   // .figures__bottom
@@ -186,7 +187,9 @@
     transition: transform .8s ease;
     @include adaptiveValue("margin-bottom", 100, 30,0,1440.98,390.98);
     .step-3 & {
-      transform: translate(0,100%);
+      @media (min-width:$mobile){
+        transform: translate(0,100%);
+      }
     } 
     @media (min-width:$tablet){
       padding-left: 6.75vw;
@@ -249,7 +252,7 @@
   }
 	// .figures__sub-txt-03
 	&__sub-txt-03 {
-    margin-bottom: 2vw;
+    margin-bottom: 3vw;
     transition: transform .6s ease;
     transform: translate(calc(-25% - toRem(20)),0%);
     .loaded & {
@@ -260,7 +263,8 @@
 }
 
 .sub-txt {
-  @include adaptiveValue("font-size", 24, 20,2,1440.98,768.98);
+  font-size: toRem(15);
+  // @include adaptiveValue("font-size", 24, 20,2,1440.98,768.98);
   @media (max-width:$mobile){
      display: none; 
   }
@@ -426,7 +430,8 @@
     // @include adaptiveValue("font-size", 62, 48,2,1920.98,1440.98);
     // @include adaptiveValue("font-size", 48, 30,3,1440.98,390.98);
     
-    @include adaptiveValue("font-size", 62, 30,0,1920.98,390.98);
+    @include adaptiveValue("font-size", 44, 34,2,1920.98,1440.98);
+    @include adaptiveValue("font-size", 34, 30,3,1440.98,390.98);
     span {
       .word {
         border-bottom: 1px solid $gray-200;
@@ -436,7 +441,7 @@
       opacity: 0.2;
     }
     @media (min-width:$tablet){
-       max-width: 85%; 
+       max-width: 77%; 
     }
   }
 }
@@ -496,7 +501,7 @@
     // @include adaptiveValue("font-size", 180, 140,2,1920.98,1440.98);
     // @include adaptiveValue("font-size", 140, 47,3,1440.98,480.98);
     
-    @include adaptiveValue("font-size", 180, 47,0,1920.98,480.98);
+    @include adaptiveValue("font-size", 110, 47,0,1440.98,480.98);
 
     @include adaptiveValue("padding-left", 35,15,0,1440.98,480.98);
     @include adaptiveValue("padding-right", 35,15,0,1440.98,480.98);
@@ -515,7 +520,7 @@
         // @include adaptiveValue("height", 195, 150,2,1920.98,1440.98);
         // @include adaptiveValue("height", 150, 50,3,1440.98,480.98);
 
-        @include adaptiveValue("height", 195, 50,0,1920.98,480.98);
+        @include adaptiveValue("height", 150, 50,0,1440.98,480.98);
         position: relative;
         transform: translate(0%,-5%);
        }
@@ -606,11 +611,14 @@
   }
   // .services__block
   &__block {
+    padding-bottom: toRem(80);
   }
   // .services__spollers
   &__spollers {
     @media (min-width:$mobile){
        margin-bottom: toRem(20); 
+       max-width: 90%;
+       margin-inline: auto;
     }
     @media (max-width:$mobile){
       margin-bottom: toRem(30); 
@@ -621,6 +629,7 @@
     width: fit-content;
     @media (min-width:$tablet){
       margin-left: auto;  
+      margin-right: 5%;
     }
     @media (max-width:$tablet){
       margin-inline: auto;
@@ -684,18 +693,12 @@
   // .spollers-s__num
   &__num {
     @extend %spollersTransition;
-    // @include adaptiveValue("font-size", 26, 20,2,1920.98,1440.98);
-    // @include adaptiveValue("font-size", 20, 9,3,1440.98,480.98);
-
-    @include adaptiveValue("font-size", 26, 9,0,1920.98,480.98);
+    @include adaptiveValue("font-size", 20, 9,0,1440.98,480.98);
   }
   // .spollers-s__name
   &__name {
     @extend %spollersTransition;
-    // @include adaptiveValue("font-size", 93, 72,2,1920.98,1440.98);
-    // @include adaptiveValue("font-size", 72, 25,3,1440.98,480.98);
-
-    @include adaptiveValue("font-size", 93, 25,0,1920.98,480.98);
+    @include adaptiveValue("font-size", 60, 25,0,1440.98,480.98);
   }
   // .spollers-s__link
   &__link {
@@ -705,19 +708,11 @@
     border-radius: toRem(150);
     height: fit-content;
     transition: color .3s ease, background-color .3s ease, border .3s ease;
-    // @include adaptiveValue("padding-left", 45,35,2,1920.98,1440.98);
-    // @include adaptiveValue("padding-left", 35,20,3,1440.98,480.98);
-    // @include adaptiveValue("padding-right", 45,35,2,1920.98,1440.98);
-    // @include adaptiveValue("padding-right", 35,20,3,1440.98,480.98);
-    // @include adaptiveValue("min-height", 65,50,2,1920.98,1440.98);
-    // @include adaptiveValue("min-height", 50,29,3,1440.98,480.98);
-    // @include adaptiveValue("font-size", 31, 24,2,1920.98,1440.98);
-    // @include adaptiveValue("font-size", 24, 14,3,1440.98,480.98);
+   
     
-    @include adaptiveValue("padding-left", 45,20,0,1920.98,480.98);
-    @include adaptiveValue("padding-right", 45,20,0,1920.98,480.98);
-    @include adaptiveValue("min-height", 65,29,0,1920.98,480.98);
-    @include adaptiveValue("font-size", 31, 14,0,1920.98,480.98);
+    @include adaptiveValue("padding-inline", 30,20,0,1440.98,480.98);
+    @include adaptiveValue("min-height", 41,29,0,1440.98,480.98);
+    @include adaptiveValue("font-size", 20, 14,0,1440.98,480.98);
 
     @media (min-width:$mobile){
       border: toRem(2) solid $gray-600;
@@ -746,11 +741,11 @@
     // @include adaptiveValue("padding-bottom", 44,34,2,1920.98,1440.98);
     // @include adaptiveValue("padding-bottom", 34,16,3,1440.98,480.98);
     
-    @include adaptiveValue("font-size", 31, 14,0,1920.98,480.98);
+    @include adaptiveValue("font-size", 20, 14,0,1440.98,480.98);
     @include adaptiveValue("padding-bottom", 44,16,0,1920.98,480.98);
     @media (min-width:toEm(600.98)){
       margin-left: 24vw;
-      max-width: 42%;
+      max-width: 35%;
     }
   }
 }
@@ -797,7 +792,7 @@
     display: block;
     height: auto;
     margin-left: auto;
-    @include adaptiveValue("width", 780,500,2,1920.98,500.98);
+    @include adaptiveValue("width", 563,500,2,1920.98,500.98);
   }
 }
 
@@ -813,6 +808,10 @@
   }
   // .members__spollers
   &__spollers {
+    @media (min-width:$mobile){
+      max-width: 95%;
+      margin-inline: auto;
+   }
   }
 }
 
@@ -854,6 +853,7 @@
   // .spollers-mb__summary
   &__summary {
     @extend %spollerSummary;
+    display: grid;
     @media (any-hover: hover){
       &:hover{
         .spollers-mb__position,
@@ -868,6 +868,12 @@
         }
       }
     }
+    @media (min-width:$mobileSmall){
+      grid-template-columns: 29% 39% 1fr ;
+    }
+    @media (max-width:$mobileSmall){
+      grid-template-columns: 29% 1fr auto;
+    }
   }
   // .spollers-mb__position
   &__position {
@@ -876,12 +882,14 @@
   }
   // .spollers-mb__name
   &__name {
+    justify-self: center;
     @extend %spollersTransition;
     text-transform: uppercase;
     @include adaptiveValue("font-size", 54, 20,0,1920.98,480.98);
   }
   // .spollers-mb__arr
   &__arr {
+    justify-self: flex-end;
     transform-origin: 50% 50%;
     transition: transform .5s ease;
     height: auto;
@@ -896,7 +904,7 @@
   // .spollers-mb__wrapper
   &__wrapper {
     line-height: 1.2;
-    @include adaptiveValue("font-size", 31, 15,0,1920.98,480.98);
+    @include adaptiveValue("font-size", 20, 15,0,1440.98,480.98);
     @include adaptiveValue("padding-top", 26, 16,0,1920.98,480.98);
     // @include adaptiveValue("padding-bottom", 52, 16,0,1920.98,480.98);
     @media (min-width:toEm(1200.98)){
@@ -956,7 +964,7 @@
     transform: translate(-65%,-50%);
     height: auto;
     @media (min-width:$mobileSmall){
-      width: 30%;
+      width: 20%;
     }
     @media (max-width:$mobileSmall){
       width: 49%;
@@ -972,17 +980,17 @@
 	// .clients__title
 	&__title {
      color: $gray-400;
-    @include adaptiveValue("margin-bottom", 130, 30,0,1920.98,480.98);
+    @include adaptiveValue("margin-bottom", 84, 30,0,1440.98,480.98);
 	}
 	// .clients__ticker
 	&__ticker {
-    @include adaptiveValue("margin-bottom", 180, 60,0,1440.98,480.98);
 	}
   // .clients__link
   &__link {
     display: block;
     margin-inline: auto;
     width: fit-content;
+    @include adaptiveValue("margin-block", 156,60,0,1440.98,480.98 );
     @media (any-hover: hover){
       &:hover{
         .btn-circle__arr {
@@ -999,12 +1007,12 @@
       }
       // .btn-circle__txt
       &__txt {
-        @include adaptiveValue("font-size", 54, 20,0,1920.98,480.98);
+        @include adaptiveValue("font-size", 40, 25,0,1440.98,480.98);
       }
       // .btn-circle__arr
       &__arr {
         svg {
-          @include adaptiveValue("width", 32, 13,0,1920.98,480.98);
+          @include adaptiveValue("width", 26, 13,0,1440.98,480.98);
         }
         .arrow {
         }
@@ -1045,22 +1053,17 @@
     border-left: toRem(1) solid $gray-600;
     border-right: toRem(1) solid $gray-600;
     transition: border .3s ease;
-    @include adaptiveValue("width", 390, 194,0,1920.98,390.98);
+    @include adaptiveValue("width", 240, 194,0,1440.98,390.98);
     @media (any-hover: hover){
       &:hover{
         border-color: $neon-green;
       }
     }
     img {
-      max-width: 80%;
+      // max-width: 80%;
       width: 100%;
       height: 100%;
       object-fit: contain;
-    }
-    &._set-sm {
-      img {
-        max-height: 60%;
-      }
     }
 	}
 }
@@ -1076,23 +1079,19 @@
   }
   // .projects__block
   &__block {
-    &.block-clm {
-      // .block-clm__left
-      &__left {
-      }
-      // .block-clm__title
-      &__title {
-      }
-      // .block-clm__right
-      &__right {
-      }
-      // .block-clm__body
-      &__body {
-      }
-      // .block-clm__txt
-      &__txt {
+    @include adaptiveValue("padding-bottom", 100, 30,0,1440.98,480.98);
+    .block-clm__left {}
+    
+    .block-clm__title {}
+    
+    .block-clm__right {}
+    
+    .block-clm__body {
+      @media (min-width:$mobile){
+         max-width: 55%; 
       }
     }
+    .block-clm__txt {}
   }
   // .projects__nav
   &__nav {
@@ -1103,43 +1102,65 @@
     display: grid;
     column-gap: toRem(32);
     @include adaptiveValue("row-gap", 135, 32,0,1920.98,480.98);
-    @include adaptiveValue("margin-bottom", 75, 36,0,1920.98,480.98);
-    @media (min-width:toEm(600.98)){
+    @include adaptiveValue("margin-bottom", 56, 35,0,1440.98,480.98);
+    @media (min-width:$mobileSmall){
       grid-template-columns: repeat(2,1fr);
+      grid-auto-rows: .7fr;
     }
+
     .item-project {
       // Стили для всех 1-х элементов (1, 6, 11, ...)
       &:nth-child(5n + 1) {
         @media (min-width:toEm(600.98)){
           width: 97%;
+          img {
+            aspect-ratio: 620/411;
+          }
         }
       }
-      // Стили для всех 2-х элементов (2, 7, 12, ...)
+      // // Стили для всех 2-х элементов (2, 7, 12, ...)
       &:nth-child(5n + 2) {
-        @media (min-width:toEm(600.98)){
+        @include adaptiveValue("margin-top", 135, 32,2,1920.98,480.98);
+        @media (min-width:$mobileSmall){
           width: 86%;
           margin-left: auto;
+          grid-row: span 2;
+          img {
+            aspect-ratio: 543/756;
+          }
         }
       }
       // Стили для всех 3-х элементов (3, 8, 13, ...)
       &:nth-child(5n + 3) {
-        @media (min-width:toEm(600.98)){
+        @include adaptiveValue("margin-top", 100, 32,2,1920.98,480.98);
+        @media (min-width:$mobileSmall){
           width: 87%;
+          grid-row: span 2;
+          img {
+            aspect-ratio: 551/782;
+          }
         }
       }
       // Стили для всех 4-х элементов (4, 9, 14, ...)
       &:nth-child(5n + 4) {
-        @media (min-width:toEm(600.98)){
+        @media (min-width:$mobileSmall){
           width: 94%;
           margin-left: auto;
+          margin-top: toRem(40);
+          img {
+            aspect-ratio: 597/398;
+          }
         }
       }
       // Стили для всех 5-х элементов (5, 10, 15, ...)
       &:nth-child(5n + 5) {
-        @media (min-width:toEm(600.98)){
+        @media (min-width:$mobileSmall){
           grid-column: span 2;
-          margin-left: auto;
-          width: 88%;
+          grid-row: span 2;
+          width: 100%;
+          img {
+            aspect-ratio: 1277/720;
+          }
         }
       }
     }
@@ -1172,10 +1193,10 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    @include adaptiveValue("column-gap", 29, 10,0,1920.98,480.98);
-    @include adaptiveValue("row-gap", 29, 16,0,1920.98,480.98);
+    @include adaptiveValue("column-gap", 28, 10,0,1920.98,480.98);
+    @include adaptiveValue("row-gap", 18, 16,0,1920.98,480.98);
     @media (min-width:$tablet){
-       max-width: 90%; 
+       max-width: 78%; 
     }
   }
   // .nav-projects__item
@@ -1190,11 +1211,9 @@
     border: toRem(2) solid $gray-600;
     border-radius: toRem(96);
     transition: background-color .3s ease, border .3s ease, color .3s ease;
-    @include adaptiveValue("font-size", 31, 14,0,1920.98,480.98);
-    @include adaptiveValue("padding-top", 10, 6,0,1920.98,480.98);
-    @include adaptiveValue("padding-bottom", 10, 6,0,1920.98,480.98);
-    @include adaptiveValue("padding-left", 26, 10,0,1920.98,480.98);
-    @include adaptiveValue("padding-right", 26, 10,0,1920.98,480.98);
+    @include adaptiveValue("font-size", 23, 12,0,1920.98,480.98);
+    @include adaptiveValue("padding-block", 10, 5,0,1920.98,480.98);
+    @include adaptiveValue("padding-inline", 26, 10,0,1920.98,480.98);
     @media (max-width:$mobileSmall){
        border-width: toRem(1); 
     }
@@ -1226,7 +1245,16 @@
           transform: scale(1);
         }
         .item-project__arrow {
-          transform: scale(1.4);
+          &::after {
+            transform: rotate(-90deg) scaleX(1.2);
+          }
+          &::before {
+            transform: scaleX(1.2);
+          }
+          span {
+            display: block;
+            transform: rotate(-45deg) scaleX(1.65);
+          }
         }
       }
     }
@@ -1235,12 +1263,13 @@
 	&__head {
     overflow: hidden;
     position: relative;
-    @include adaptiveValue("margin-bottom", 73, 32,0,1920.98,480.98);
+    @include adaptiveValue("margin-bottom", 50, 32,0,1920.98,480.98);
 	}
 	// .item-project__img
 	&__img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
     transform: scale(1.05);
     transition: transform .5s ease;
     transform-origin: 50% 50%;
@@ -1249,13 +1278,51 @@
 	&__arrow {
     position: absolute;
     z-index: 2;
-    transition: transform .4s ease;
-    transform-origin: 100% 0%;
-    @include adaptiveValue("width", 55, 24,0,1920.98,480.98);
+    // transition: transform .4s ease;
+    // transform-origin: 100% 0%;
+    aspect-ratio: 1/1;
+    @include adaptiveValue("width", 48, 24,0,1920.98,480.98);
     @include adaptiveValue("top", 52, 23,0,1920.98,480.98);
     @include adaptiveValue("right", 52, 23,0,1920.98,480.98);
-    path {
-      transition: fill .4s ease;
+    // path {
+    //   transition: fill .4s ease;
+    // }
+    
+    &._cl-light {
+      &:before,
+      &:after,
+      span {
+        background-color: $gray-200;
+      }
+    }
+    &._cl-dark {
+      &:before,
+      &:after,
+      span {
+        background-color: $black-800;
+      }
+    }
+
+    &:before,
+    &:after,
+    span {
+      content:'';
+      position: absolute;
+      height: toRem(2);
+      width: 100%;
+      transform-origin: 100% 0;
+      transition: transform .4s ease;
+    }
+    &::after {
+      transform: rotate(-90deg);
+    }
+    &::before {
+    }
+    span {
+      display: block;
+      top: toRem(0.5);
+      // right: toRem(0.5);
+      transform: rotate(-45deg) scaleX(1.38);
     }
 	}
   // .item-project__footer
@@ -1264,14 +1331,14 @@
   // .item-project__title
   &__title {
     text-transform: uppercase;
-    @include adaptiveValue("font-size", 55, 25,0,1920.98,480.98);
-    @include adaptiveValue("margin-bottom", 29, 14,0,1920.98,480.98);
+    @include adaptiveValue("font-size", 36, 25,0,1920.98,480.98);
+    @include adaptiveValue("margin-bottom", 15, 10,0,1920.98,480.98);
   }
   // .item-project__subtitle
   &__subtitle {
     line-height: 1.2;
     color: $gray-500;
-    @include adaptiveValue("font-size", 31, 14,0,1920.98,480.98);
+    @include adaptiveValue("font-size", 16, 14,0,1920.98,480.98);
   }
 }
 
@@ -1282,7 +1349,7 @@
   font-weight: 500;
   text-transform: uppercase;
   color: $gray-8-8b;
-  @include adaptiveValue("font-size", 35, 15,0,1920.98,480.98);
+  @include adaptiveValue("font-size", 23, 15,0,1920.98,480.98);
 }
 .project {
   h1 {
@@ -1321,7 +1388,7 @@
       line-height: 1.3;
       color: #000;
       text-transform: uppercase;
-      @include adaptiveValue("font-size", 36, 13,0,1920.98,480.98);
+      @include adaptiveValue("font-size", 31, 13,0,1920.98,480.98);
       @include adaptiveValue("margin-bottom", 100, 36,0,1920.98,480.98);
       @media (min-width:toEm(820.98)){
         max-width: 72%;
@@ -1342,13 +1409,13 @@
 		// .head-project__serv-t
 		&__serv-t {
       @extend %projectsTxt-1;
-      @include adaptiveValue("margin-bottom", 26, 8,0,1920.98,480.98);
+      @include adaptiveValue("margin-bottom", 19, 8,0,1920.98,480.98);
 		}
 		// .head-project__category
 		&__category {
       @extend %projectsTxt-1;
       color: #000;
-      @include adaptiveValue("margin-bottom", 26, 14,0,1920.98,480.98);
+      @include adaptiveValue("margin-bottom", 35, 14,0,1920.98,480.98);
 		}
 		// .head-project__right
 		&__right {
@@ -1429,7 +1496,7 @@
   // .about-project__content
   &__content {
     @media (min-width:$tablet){
-      max-width: 76%;
+      max-width: 55%;
     }
     p, ul, ol {
       @include adaptiveValue("margin-bottom", 42,14,0,1920.98,480.98 );
@@ -1561,7 +1628,7 @@
     background-color: rgba(81, 255, 0, 0.63);
     border: toRem(2) solid $neon-green;
     transition: background-color .3s ease, opacity .3s ease;
-    @include adaptiveValue("width", 120,42,0,1920.98,480.98 );
+    @include adaptiveValue("width", 74,42,0,1920.98,480.98 );
     svg,img {
       width: 38%;
       height: auto;
@@ -1607,10 +1674,11 @@
   &__txt {
     line-height: 1.3;
     text-transform: uppercase;
-    @include adaptiveValue("font-size", 36, 13,0,1920.98,480.98);
+    @include adaptiveValue("font-size", 23, 15,0,1920.98,480.98);
     @media (min-width:$mobile){
-       max-width: 50%;
+       max-width: 38%;
        margin-left: auto; 
+       margin-right: 5%;
        margin-bottom: toRem(32);
     }
     @media (max-width:$mobile){
@@ -1802,6 +1870,8 @@
   // .video-project__body
   &__body {
     position: relative;
+    max-width: 86%;
+    margin-inline: auto;
     video {
       width: 100%;
       height: 100%;
@@ -1858,7 +1928,7 @@
   background-color: $neon-green;
   color: $black-800;
   line-height: 1.3;
-  @include adaptiveValue("font-size", 42, 20,0,1440.98,480.98);
+  @include adaptiveValue("font-size", 38, 20,0,1920.98,480.98);
   h2 {
     font-weight: 500;
     @include adaptiveValue("margin-bottom", 55, 20,0,1440.98,480.98);
@@ -1880,6 +1950,9 @@
   // .team-project__kama
   &__kama {
     text-transform: uppercase;
+    span {
+      @include adaptiveValue("font-size", 30, 16,0,1920.98,480.98);
+    }
     @include adaptiveValue("margin-top", 140, 80,0,1440.98,480.98);
     @media (min-width:$mobileSmall){
       text-align: right;

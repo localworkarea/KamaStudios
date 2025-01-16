@@ -530,6 +530,9 @@ body {
 .txt-32 {
   line-height: 1.3
 }
+.txt-25 {
+  line-height: 1.3
+}
 .txt-24 {
   font-weight: 500;
   text-transform: uppercase;
@@ -783,7 +786,8 @@ body {
   width: .0625rem
 }
 .lng__link {
-  color: #7a7a7d
+  color: #7a7a7d;
+  font-size: .9375rem
 }
 .project-page .lng__link {
   color: #1a1a1a
@@ -833,9 +837,6 @@ body {
 .hero__body.step-1::before {
   bottom: unset;
   top: 0
-}
-.hero__body.step-3::before {
-  height: 100vh!important
 }
 .hero__body::before {
   content: "";
@@ -918,10 +919,6 @@ body {
   transition: transform .8s ease;
   transition: transform .8s ease,-webkit-transform .8s ease
 }
-.step-3 .figures__title-wr {
-  -webkit-transform: translate(0,100%);
-  transform: translate(0,100%)
-}
 .figures__title-body {
   transition: -webkit-transform .5s ease;
   transition: transform .5s ease;
@@ -965,7 +962,7 @@ body {
   transition-delay: 1.65s
 }
 .figures__sub-txt-03 {
-  margin-bottom: 2vw;
+  margin-bottom: 3vw;
   transition: -webkit-transform .6s ease;
   transition: transform .6s ease;
   transition: transform .6s ease,-webkit-transform .6s ease;
@@ -976,6 +973,9 @@ body {
   -webkit-transform: translate(0,0);
   transform: translate(0,0);
   transition-delay: 1.65s
+}
+.sub-txt {
+  font-size: .9375rem
 }
 .right-figure {
   overflow: hidden
@@ -1175,6 +1175,9 @@ body {
   height: 50%;
   border: .125rem solid #e60795
 }
+.services__block {
+  padding-bottom: 5rem
+}
 .services__link-body {
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -1276,10 +1279,15 @@ body {
   -webkit-transform: translateY(0);
   transform: translateY(0)
 }
+.spollers-mb__summary {
+  display: grid
+}
 .spollers-mb__name {
+  justify-self: center;
   text-transform: uppercase
 }
 .spollers-mb__arr {
+  justify-self: flex-end;
   -webkit-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
   transition: -webkit-transform .5s ease;
@@ -1352,14 +1360,10 @@ body {
   transition: border .3s ease
 }
 .ticker-clients__item img {
-  max-width: 80%;
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
   object-fit: contain
-}
-.ticker-clients__item._set-sm img {
-  max-height: 60%
 }
 .projects__items {
   display: grid;
@@ -1407,7 +1411,9 @@ body {
 }
 .item-project__img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
   -webkit-transform: scale(1.05);
   transform: scale(1.05);
   transition: -webkit-transform .5s ease;
@@ -1419,14 +1425,40 @@ body {
 .item-project__arrow {
   position: absolute;
   z-index: 2;
+  aspect-ratio: 1/1
+}
+.item-project__arrow._cl-light span,
+.item-project__arrow._cl-light:after,
+.item-project__arrow._cl-light:before {
+  background-color: #d9d9d9
+}
+.item-project__arrow._cl-dark span,
+.item-project__arrow._cl-dark:after,
+.item-project__arrow._cl-dark:before {
+  background-color: #1a1a1a
+}
+.item-project__arrow span,
+.item-project__arrow:after,
+.item-project__arrow:before {
+  content: "";
+  position: absolute;
+  height: .125rem;
+  width: 100%;
+  -webkit-transform-origin: 100% 0;
+  transform-origin: 100% 0;
   transition: -webkit-transform .4s ease;
   transition: transform .4s ease;
-  transition: transform .4s ease,-webkit-transform .4s ease;
-  -webkit-transform-origin: 100% 0;
-  transform-origin: 100% 0
+  transition: transform .4s ease,-webkit-transform .4s ease
 }
-.item-project__arrow path {
-  transition: fill .4s ease
+.item-project__arrow::after {
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg)
+}
+.item-project__arrow span {
+  display: block;
+  top: .03125rem;
+  -webkit-transform: rotate(-45deg) scaleX(1.38);
+  transform: rotate(-45deg) scaleX(1.38)
 }
 .item-project__title {
   text-transform: uppercase
@@ -1688,7 +1720,9 @@ body {
   margin-inline: auto
 }
 .video-project__body {
-  position: relative
+  position: relative;
+  max-width: 86%;
+  margin-inline: auto
 }
 .video-project__body video {
   width: 100%;
@@ -1791,7 +1825,7 @@ body {
     text-align: right
   }
   .links-footer {
-    margin-bottom: 1.875rem
+    margin-bottom: 6.25rem
   }
   .links-footer__block.block-social .links-footer__link:not(:last-child) {
     margin-bottom: 1.625rem
@@ -1802,11 +1836,49 @@ body {
   .spollers-mb__item:not(:last-child) .spollers-mb__summary {
     border-bottom: .125rem solid #454546
   }
+  .spollers-mb__summary {
+    grid-template-columns: 29% 39% 1fr
+  }
   .bg-img__bg {
     aspect-ratio: 1439/684
   }
   .bg-img__logo {
-    width: 30%
+    width: 20%
+  }
+  .projects__items {
+    grid-template-columns: repeat(2,1fr);
+    grid-auto-rows: .7fr
+  }
+  .projects__items .item-project:nth-child(5n+2) {
+    width: 86%;
+    margin-left: auto;
+    grid-row: span 2
+  }
+  .projects__items .item-project:nth-child(5n+2) img {
+    aspect-ratio: 543/756
+  }
+  .projects__items .item-project:nth-child(5n+3) {
+    width: 87%;
+    grid-row: span 2
+  }
+  .projects__items .item-project:nth-child(5n+3) img {
+    aspect-ratio: 551/782
+  }
+  .projects__items .item-project:nth-child(5n+4) {
+    width: 94%;
+    margin-left: auto;
+    margin-top: 2.5rem
+  }
+  .projects__items .item-project:nth-child(5n+4) img {
+    aspect-ratio: 597/398
+  }
+  .projects__items .item-project:nth-child(5n+5) {
+    grid-column: span 2;
+    grid-row: span 2;
+    width: 100%
+  }
+  .projects__items .item-project:nth-child(5n+5) img {
+    aspect-ratio: 1277/720
   }
   .slider-project::before {
     height: 34%
@@ -1827,29 +1899,13 @@ body {
 @media (min-width:37.56125em) {
   .spollers-s__wrapper {
     margin-left: 24vw;
-    max-width: 42%
-  }
-  .projects__items {
-    grid-template-columns: repeat(2,1fr)
+    max-width: 35%
   }
   .projects__items .item-project:nth-child(5n+1) {
     width: 97%
   }
-  .projects__items .item-project:nth-child(5n+2) {
-    width: 86%;
-    margin-left: auto
-  }
-  .projects__items .item-project:nth-child(5n+3) {
-    width: 87%
-  }
-  .projects__items .item-project:nth-child(5n+4) {
-    width: 94%;
-    margin-left: auto
-  }
-  .projects__items .item-project:nth-child(5n+5) {
-    grid-column: span 2;
-    margin-left: auto;
-    width: 88%
+  .projects__items .item-project:nth-child(5n+1) img {
+    aspect-ratio: 620/411
   }
   .block-a-project__img img {
     width: 26%
@@ -1892,6 +1948,7 @@ body {
     height: 75vh
   }
   .hero__body.step-3::before {
+    height: 100vh!important;
     transition-delay: 0s
   }
   .figures {
@@ -1904,10 +1961,14 @@ body {
   }
   .figures__txt-wr {
     padding-top: 6.25rem;
-    margin-bottom: 13.5vw
+    margin-bottom: 12.5vw
   }
   .figures__bottom {
     grid-column: 2/3
+  }
+  .step-3 .figures__title-wr {
+    -webkit-transform: translate(0,100%);
+    transform: translate(0,100%)
   }
   .figures__title-wr {
     padding-top: 3.125rem
@@ -1929,10 +1990,16 @@ body {
     left: 7.3vw
   }
   .services__spollers {
-    margin-bottom: 1.25rem
+    margin-bottom: 1.25rem;
+    max-width: 90%;
+    margin-inline: auto
   }
   .spollers-s__link {
     border: .125rem solid #454546
+  }
+  .members__spollers {
+    max-width: 95%;
+    margin-inline: auto
   }
   .spollers-mb__wrapper {
     max-width: 70%
@@ -1940,9 +2007,13 @@ body {
   .spollers-mb__img {
     top: -50%
   }
+  .projects__block .block-clm__body {
+    max-width: 55%
+  }
   .block-a-project__txt {
-    max-width: 50%;
+    max-width: 38%;
     margin-left: auto;
+    margin-right: 5%;
     margin-bottom: 2rem
   }
 }
@@ -1981,33 +2052,36 @@ body {
     max-width: 50%
   }
   .block-clm__body {
-    max-width: 76%
+    max-width: 67%
   }
   .figures__title-wr {
     padding-left: 6.75vw
   }
   .info-hero__txt {
-    max-width: 85%
+    max-width: 77%
   }
   .services__link-body {
-    margin-left: auto
+    margin-left: auto;
+    margin-right: 5%
   }
   .nav-projects__list {
-    max-width: 90%
+    max-width: 78%
   }
   .about-project__content {
-    max-width: 76%
+    max-width: 55%
   }
 }
 @media (min-width:75.06125em) {
   .loaded.index-page .menu {
     -webkit-transform: translate(0,0);
     transform: translate(0,0);
-    transition: -webkit-transform .6s ease 2.6s;
-    transition: transform .6s ease 2.6s;
-    transition: transform .6s ease 2.6s,-webkit-transform .6s ease 2.6s
+    opacity: 1;
+    transition: opacity .2s ease 2.6s,-webkit-transform .6s ease 2.6s;
+    transition: transform .6s ease 2.6s,opacity .2s ease 2.6s;
+    transition: transform .6s ease 2.6s,opacity .2s ease 2.6s,-webkit-transform .6s ease 2.6s
   }
   .index-page .menu {
+    opacity: 0;
     -webkit-transform: translate(0,-200%);
     transform: translate(0,-200%)
   }
@@ -2025,7 +2099,7 @@ body {
   }
   .menu__link {
     color: #d9d9d9;
-    font-size: 2rem
+    font-size: 1.5625rem
   }
   .project-page .menu__link {
     color: #1a1a1a
@@ -2089,23 +2163,83 @@ body {
   .pdd-tb {
     padding-bottom: 6.25rem
   }
+  .pdd-b-140-80 {
+    padding-bottom: 8.75rem
+  }
+  .pdd-tb-136-60 {
+    padding-block: 8.5rem
+  }
+  .pdd-t-136-60 {
+    padding-top: 8.5rem
+  }
+  .pdd-b-136-60 {
+    padding-bottom: 8.5rem
+  }
+  .pdd-tb-84-56 {
+    padding-block: 5.25rem
+  }
+  .pdd-t-84-56 {
+    padding-top: 5.25rem
+  }
+  .pdd-b-84-56 {
+    padding-bottom: 5.25rem
+  }
+  .pdd-t-64-49 {
+    padding-top: 4rem
+  }
+  .pdd-b-64-49 {
+    padding-bottom: 4rem
+  }
+  .txt-42 {
+    font-size: 2.5rem
+  }
+  .txt-25 {
+    font-size: 1.5625rem
+  }
   .block-clm__txt:not(:last-child) {
-    margin-bottom: 3.25rem
+    margin-bottom: 1.625rem
+  }
+  .btn-circle {
+    width: 15.8125rem
+  }
+  .btn-circle__arr svg {
+    width: .8125rem
   }
   .header {
     padding-top: 1.25rem
   }
   .header__logo {
-    width: 2.5rem
+    width: 3.125rem
   }
   .footer {
-    padding-top: 5rem
+    padding-top: 4.8125rem
+  }
+  .footer__logo {
+    margin-bottom: 3.9375rem
+  }
+  .footer__logo-i {
+    width: 3.125rem
+  }
+  .footer__title {
+    margin-bottom: 3.125rem
+  }
+  .footer__txt span {
+    font-size: 1.875rem
+  }
+  .links-footer__title {
+    font-size: .9375rem
+  }
+  .links-footer__title {
+    margin-bottom: 2.0625rem
+  }
+  .figures__txt {
+    font-size: 4.625rem
+  }
+  .figures__txt span {
+    font-size: 3.4375rem
   }
   .figures__title-wr {
     margin-bottom: 6.25rem
-  }
-  .sub-txt {
-    font-size: 1.5rem
   }
   .info-hero__img {
     margin-right: 1.25rem
@@ -2114,13 +2248,58 @@ body {
     padding-left: 2.3125rem
   }
   .ticker__item {
+    font-size: 6.875rem
+  }
+  .ticker__item {
     padding-left: 2.1875rem
   }
   .ticker__item {
     padding-right: 2.1875rem
   }
-  .clients__ticker {
-    margin-bottom: 11.25rem
+  .ticker__item .img img {
+    height: 9.375rem
+  }
+  .spollers-s__num {
+    font-size: 1.25rem
+  }
+  .spollers-s__name {
+    font-size: 3.75rem
+  }
+  .spollers-s__link {
+    padding-inline: 1.875rem
+  }
+  .spollers-s__link {
+    min-height: 2.5625rem
+  }
+  .spollers-s__link {
+    font-size: 1.25rem
+  }
+  .spollers-s__wrapper {
+    font-size: 1.25rem
+  }
+  .spollers-mb__wrapper {
+    font-size: 1.25rem
+  }
+  .clients__title {
+    margin-bottom: 5.25rem
+  }
+  .clients__link {
+    margin-block: 9.75rem
+  }
+  .clients__link .btn-circle__txt {
+    font-size: 2.5rem
+  }
+  .clients__link .btn-circle__arr svg {
+    width: 1.625rem
+  }
+  .ticker-clients__item {
+    width: 15rem
+  }
+  .projects__block {
+    padding-bottom: 6.25rem
+  }
+  .projects__items {
+    margin-bottom: 3.5rem
   }
   .about-project__colors {
     padding-left: 1.3125rem
@@ -2145,9 +2324,6 @@ body {
   }
   .video-project__play {
     font-size: 1.125rem
-  }
-  .team-project {
-    font-size: 2.625rem
   }
   .team-project h2 {
     margin-bottom: 3.4375rem
@@ -2222,56 +2398,26 @@ body {
   .pdd-tb-100 {
     padding-bottom: 8.125rem
   }
-  .txt-42 {
-    font-size: 3.4375rem
-  }
   .txt-32 {
-    font-size: 2.625rem
-  }
-  .txt-24 {
-    font-size: 1.9375rem
-  }
-  .txt-20 {
     font-size: 1.625rem
   }
-  .btn-circle {
-    width: 27.375rem
+  .txt-24 {
+    font-size: 1.625rem
+  }
+  .txt-20 {
+    font-size: 1.25rem
   }
   .btn-circle__body {
     gap: 1.625rem
   }
   .btn-circle__txt {
-    font-size: 1.9375rem
-  }
-  .btn-circle__arr svg {
-    width: 1.375rem
-  }
-  .footer__logo {
-    margin-bottom: 2.4375rem
-  }
-  .footer__logo-i {
-    width: 3.25rem
-  }
-  .footer__title {
-    margin-bottom: 6.25rem
-  }
-  .links-footer__title {
-    font-size: 1.9375rem
-  }
-  .links-footer__title {
-    margin-bottom: 4.0625rem
+    font-size: 1.25rem
   }
   .links-footer__link .btn-circle__txt {
     font-size: 3.4375rem
   }
   .links-footer__link .btn-circle__arr svg {
     width: 2rem
-  }
-  .figures__txt {
-    font-size: 7.3125rem
-  }
-  .figures__txt span {
-    font-size: 5rem
   }
   .figures__title {
     font-size: 1.9375rem
@@ -2286,13 +2432,7 @@ body {
     padding-top: 7.5rem
   }
   .info-hero__txt {
-    font-size: 3.875rem
-  }
-  .ticker__item {
-    font-size: 11.25rem
-  }
-  .ticker__item .img img {
-    height: 12.1875rem
+    font-size: 2.75rem
   }
   .spollers-mb__summary,
   .spollers-s__summary {
@@ -2302,32 +2442,11 @@ body {
   .spollers-s__summary {
     padding-bottom: 2.75rem
   }
-  .spollers-s__num {
-    font-size: 1.625rem
-  }
-  .spollers-s__name {
-    font-size: 5.8125rem
-  }
-  .spollers-s__link {
-    padding-left: 2.8125rem
-  }
-  .spollers-s__link {
-    padding-right: 2.8125rem
-  }
-  .spollers-s__link {
-    min-height: 4.0625rem
-  }
-  .spollers-s__link {
-    font-size: 1.9375rem
-  }
-  .spollers-s__wrapper {
-    font-size: 1.9375rem
-  }
   .spollers-s__wrapper {
     padding-bottom: 2.75rem
   }
   .team__img {
-    width: 48.75rem
+    width: 35.1875rem
   }
   .members__title {
     margin-bottom: 8.125rem
@@ -2342,9 +2461,6 @@ body {
     width: 2.875rem
   }
   .spollers-mb__wrapper {
-    font-size: 1.9375rem
-  }
-  .spollers-mb__wrapper {
     padding-top: 1.625rem
   }
   .spollers-mb__img {
@@ -2352,18 +2468,6 @@ body {
   }
   .spollers-mb__img img {
     max-width: 20rem
-  }
-  .clients__title {
-    margin-bottom: 8.125rem
-  }
-  .clients__link .btn-circle__txt {
-    font-size: 3.375rem
-  }
-  .clients__link .btn-circle__arr svg {
-    width: 2rem
-  }
-  .ticker-clients__item {
-    width: 24.375rem
   }
   .projects {
     padding-top: 18.75rem
@@ -2374,37 +2478,34 @@ body {
   .projects__items {
     row-gap: 8.4375rem
   }
-  .projects__items {
-    margin-bottom: 4.6875rem
+  .projects__items .item-project:nth-child(5n+2) {
+    margin-top: 8.4375rem
+  }
+  .projects__items .item-project:nth-child(5n+3) {
+    margin-top: 6.25rem
   }
   .nav-projects__list {
-    -webkit-column-gap: 1.8125rem;
-    -moz-column-gap: 1.8125rem;
-    column-gap: 1.8125rem
+    -webkit-column-gap: 1.75rem;
+    -moz-column-gap: 1.75rem;
+    column-gap: 1.75rem
   }
   .nav-projects__list {
-    row-gap: 1.8125rem
+    row-gap: 1.125rem
   }
   .nav-projects__link {
-    font-size: 1.9375rem
+    font-size: 1.4375rem
   }
   .nav-projects__link {
-    padding-top: .625rem
+    padding-block: .625rem
   }
   .nav-projects__link {
-    padding-bottom: .625rem
-  }
-  .nav-projects__link {
-    padding-left: 1.625rem
-  }
-  .nav-projects__link {
-    padding-right: 1.625rem
+    padding-inline: 1.625rem
   }
   .item-project__head {
-    margin-bottom: 4.5625rem
+    margin-bottom: 3.125rem
   }
   .item-project__arrow {
-    width: 3.4375rem
+    width: 3rem
   }
   .item-project__arrow {
     top: 3.25rem
@@ -2413,18 +2514,18 @@ body {
     right: 3.25rem
   }
   .item-project__title {
-    font-size: 3.4375rem
+    font-size: 2.25rem
   }
   .item-project__title {
-    margin-bottom: 1.8125rem
+    margin-bottom: .9375rem
   }
   .item-project__subtitle {
-    font-size: 1.9375rem
+    font-size: 1rem
   }
   .head-project__category,
   .head-project__footer,
   .head-project__serv-t {
-    font-size: 2.1875rem
+    font-size: 1.4375rem
   }
   .project h1 {
     font-size: 9.6875rem
@@ -2436,16 +2537,16 @@ body {
     padding-bottom: 6rem
   }
   .head-project__about {
-    font-size: 2.25rem
+    font-size: 1.9375rem
   }
   .head-project__about {
     margin-bottom: 6.25rem
   }
   .head-project__serv-t {
-    margin-bottom: 1.625rem
+    margin-bottom: 1.1875rem
   }
   .head-project__category {
-    margin-bottom: 1.625rem
+    margin-bottom: 2.1875rem
   }
   .head-project__right {
     padding-top: 5rem
@@ -2477,10 +2578,10 @@ body {
     width: .625rem
   }
   .slider-project__btn {
-    width: 7.5rem
+    width: 4.625rem
   }
   .block-a-project__txt {
-    font-size: 2.25rem
+    font-size: 1.4375rem
   }
   .block-b-project__left {
     padding: 5rem
@@ -2502,6 +2603,12 @@ body {
   .block-b-project__left ul li::before {
     width: .375rem
   }
+  .team-project {
+    font-size: 2.375rem
+  }
+  .team-project__kama span {
+    font-size: 1.875rem
+  }
 }
 @media (min-width:120em) {
   [class*=__container] {
@@ -2511,6 +2618,12 @@ body {
 @media (max-width:90.06125em) {
   [class*=__container] {
     max-width: 81.25rem
+  }
+  .txt-32 {
+    font-size: 1.25rem
+  }
+  .txt-20 {
+    font-size: .9375rem
   }
 }
 @media (max-width:83.56125em) {
@@ -2674,17 +2787,9 @@ body {
   .hero__body.step-2::before {
     height: 40vh
   }
-  .hero__body.step-3::before {
-    transition-delay: .3s
-  }
   .figures {
     grid-template-columns: 40% 60%;
     grid-template-rows: 40% 50% 10%
-  }
-  .step-3 .figures {
-    transition: grid-template-rows .45s ease .3s;
-    transition: grid-template-rows .45s ease .3s,-ms-grid-rows .45s ease .3s;
-    grid-template-rows: 80% 20% 0
   }
   .figures__txt-wr {
     grid-row: 2/3;
@@ -2853,20 +2958,44 @@ body {
   .pdd-tb-100 {
     padding-bottom: 1.875rem
   }
-  .txt-42 {
-    font-size: 1.25rem
+  .pdd-b-140-80 {
+    padding-bottom: 5rem
   }
-  .txt-32 {
+  .pdd-tb-136-60 {
+    padding-block: 5rem
+  }
+  .pdd-t-136-60 {
+    padding-top: 5rem
+  }
+  .pdd-b-136-60 {
+    padding-bottom: 5rem
+  }
+  .pdd-tb-84-56 {
+    padding-block: 3.5rem
+  }
+  .pdd-t-84-56 {
+    padding-top: 3.5rem
+  }
+  .pdd-b-84-56 {
+    padding-bottom: 3.5rem
+  }
+  .pdd-t-64-49 {
+    padding-top: 3.0625rem
+  }
+  .pdd-b-64-49 {
+    padding-bottom: 3.0625rem
+  }
+  .txt-42 {
+    font-size: 1.5625rem
+  }
+  .txt-25 {
     font-size: 1.25rem
   }
   .txt-24 {
     font-size: .8125rem
   }
-  .txt-20 {
-    font-size: .9375rem
-  }
   .block-clm__txt:not(:last-child) {
-    margin-bottom: 1rem
+    margin-bottom: 1.25rem
   }
   .btn-circle {
     width: 9.0625rem
@@ -2884,19 +3013,22 @@ body {
     padding-top: 1rem
   }
   .header__logo {
-    width: 1.4375rem
+    width: 1.875rem
   }
   .footer {
-    padding-top: 2.5rem
+    padding-top: .9375rem
   }
   .footer__logo {
     margin-bottom: 1.25rem
   }
   .footer__logo-i {
-    width: 1.5rem
+    width: 1.875rem
   }
   .footer__title {
     margin-bottom: 1.875rem
+  }
+  .footer__txt span {
+    font-size: 1.125rem
   }
   .links-footer {
     margin-bottom: 3.75rem
@@ -2955,10 +3087,7 @@ body {
     font-size: 1.5625rem
   }
   .spollers-s__link {
-    padding-left: 1.25rem
-  }
-  .spollers-s__link {
-    padding-right: 1.25rem
+    padding-inline: 1.25rem
   }
   .spollers-s__link {
     min-height: 1.8125rem
@@ -2977,6 +3106,9 @@ body {
   }
   .spollers-mb__item:not(:last-child) .spollers-mb__summary {
     border-bottom: .0625rem solid #454546
+  }
+  .spollers-mb__summary {
+    grid-template-columns: 29% 1fr auto
   }
   .spollers-mb__position {
     font-size: .8125rem
@@ -3008,17 +3140,20 @@ body {
   .clients__title {
     margin-bottom: 1.875rem
   }
-  .clients__ticker {
-    margin-bottom: 3.75rem
+  .clients__link {
+    margin-block: 3.75rem
   }
   .clients__link .btn-circle__txt {
-    font-size: 1.25rem
+    font-size: 1.5625rem
   }
   .clients__link .btn-circle__arr svg {
     width: .8125rem
   }
   .projects {
     padding-top: 8.75rem
+  }
+  .projects__block {
+    padding-bottom: 1.875rem
   }
   .projects__nav {
     margin-bottom: 1.875rem
@@ -3027,7 +3162,7 @@ body {
     row-gap: 2rem
   }
   .projects__items {
-    margin-bottom: 2.25rem
+    margin-bottom: 2.1875rem
   }
   .projects__lets {
     border-width: .0625rem
@@ -3041,19 +3176,13 @@ body {
     row-gap: 1rem
   }
   .nav-projects__link {
-    font-size: .875rem
+    font-size: .75rem
   }
   .nav-projects__link {
-    padding-top: .375rem
+    padding-block: .3125rem
   }
   .nav-projects__link {
-    padding-bottom: .375rem
-  }
-  .nav-projects__link {
-    padding-left: .625rem
-  }
-  .nav-projects__link {
-    padding-right: .625rem
+    padding-inline: .625rem
   }
   .nav-projects__link {
     border-width: .0625rem
@@ -3074,7 +3203,7 @@ body {
     font-size: 1.5625rem
   }
   .item-project__title {
-    margin-bottom: .875rem
+    margin-bottom: .625rem
   }
   .item-project__subtitle {
     font-size: .875rem
@@ -3147,7 +3276,7 @@ body {
     right: 1.25rem
   }
   .block-a-project__txt {
-    font-size: .8125rem
+    font-size: .9375rem
   }
   .block-b-project {
     padding-top: 2.875rem
@@ -3195,6 +3324,9 @@ body {
   }
   .team-project h2 {
     margin-bottom: 1.25rem
+  }
+  .team-project__kama span {
+    font-size: 1rem
   }
   .team-project__kama {
     margin-top: 5rem
@@ -3291,44 +3423,11 @@ body {
   .pdd-tb-100 {
     padding-bottom: clamp(1.875rem ,-.2125868056rem + 6.9444444444vw ,8.125rem)
   }
-  .txt-42 {
-    font-size: clamp(1.25rem ,.5193446181rem + 2.4305555556vw ,3.4375rem)
-  }
-  .txt-32 {
-    font-size: clamp(1.25rem ,.7907309028rem + 1.5277777778vw ,2.625rem)
-  }
-  .txt-24 {
-    font-size: clamp(.8125rem ,.436734375rem + 1.25vw ,1.9375rem)
-  }
-  .txt-20 {
-    font-size: clamp(.9375rem ,.7078654514rem + .7638888889vw ,1.625rem)
-  }
-  .btn-circle {
-    width: clamp(9.0625rem ,2.9458706597rem + 20.3472222222vw ,27.375rem)
-  }
   .btn-circle__body {
     gap: clamp(.3125rem ,-.1258932292rem + 1.4583333333vw ,1.625rem)
   }
   .btn-circle__txt {
-    font-size: clamp(.8125rem ,.436734375rem + 1.25vw ,1.9375rem)
-  }
-  .btn-circle__arr svg {
-    width: clamp(.625rem ,.3744895833rem + .8333333333vw ,1.375rem)
-  }
-  .footer__logo {
-    margin-bottom: clamp(1.25rem ,.8533585069rem + 1.3194444444vw ,2.4375rem)
-  }
-  .footer__logo-i {
-    width: clamp(1.5rem ,.9154756944rem + 1.9444444444vw ,3.25rem)
-  }
-  .footer__title {
-    margin-bottom: clamp(1.875rem ,.4136892361rem + 4.8611111111vw ,6.25rem)
-  }
-  .links-footer__title {
-    font-size: clamp(.8125rem ,.436734375rem + 1.25vw ,1.9375rem)
-  }
-  .links-footer__title {
-    margin-bottom: clamp(1.25rem ,.3105859375rem + 3.125vw ,4.0625rem)
+    font-size: clamp(.8125rem ,.6663689236rem + .4861111111vw ,1.25rem)
   }
   .links-footer__link .btn-circle__txt {
     font-size: clamp(1.25rem ,.5193446181rem + 2.4305555556vw ,3.4375rem)
@@ -3342,12 +3441,6 @@ body {
   .info-hero__txt {
     padding-top: clamp(2.5rem ,.8299305556rem + 5.5555555556vw ,7.5rem)
   }
-  .ticker__item {
-    font-size: clamp(2.9375rem ,.1610095486rem + 9.2361111111vw ,11.25rem)
-  }
-  .ticker__item .img img {
-    height: clamp(3.125rem ,.0979991319rem + 10.0694444444vw ,12.1875rem)
-  }
   .spollers-mb__summary,
   .spollers-s__summary {
     padding-top: clamp(1rem ,.4154756944rem + 1.9444444444vw ,2.75rem)
@@ -3355,27 +3448,6 @@ body {
   .spollers-mb__summary,
   .spollers-s__summary {
     padding-bottom: clamp(1rem ,.4154756944rem + 1.9444444444vw ,2.75rem)
-  }
-  .spollers-s__num {
-    font-size: clamp(.5625rem ,.2076102431rem + 1.1805555556vw ,1.625rem)
-  }
-  .spollers-s__name {
-    font-size: clamp(1.5625rem ,.1429409722rem + 4.7222222222vw ,5.8125rem)
-  }
-  .spollers-s__link {
-    padding-left: clamp(1.25rem ,.7281032986rem + 1.7361111111vw ,2.8125rem)
-  }
-  .spollers-s__link {
-    padding-right: clamp(1.25rem ,.7281032986rem + 1.7361111111vw ,2.8125rem)
-  }
-  .spollers-s__link {
-    min-height: clamp(1.8125rem ,1.06096875rem + 2.5vw ,4.0625rem)
-  }
-  .spollers-s__link {
-    font-size: clamp(.875rem ,.5201102431rem + 1.1805555556vw ,1.9375rem)
-  }
-  .spollers-s__wrapper {
-    font-size: clamp(.875rem ,.5201102431rem + 1.1805555556vw ,1.9375rem)
   }
   .spollers-s__wrapper {
     padding-bottom: clamp(1rem ,.4154756944rem + 1.9444444444vw ,2.75rem)
@@ -3393,9 +3465,6 @@ body {
     width: clamp(1.125rem ,.5404756944rem + 1.9444444444vw ,2.875rem)
   }
   .spollers-mb__wrapper {
-    font-size: clamp(.9375rem ,.6034861111rem + 1.1111111111vw ,1.9375rem)
-  }
-  .spollers-mb__wrapper {
     padding-top: clamp(1rem ,.7912413194rem + .6944444444vw ,1.625rem)
   }
   .spollers-mb__img {
@@ -3403,15 +3472,6 @@ body {
   }
   .spollers-mb__img img {
     max-width: clamp(7.1875rem ,2.9079470486rem + 14.2361111111vw ,20rem)
-  }
-  .clients__title {
-    margin-bottom: clamp(1.875rem ,-.2125868056rem + 6.9444444444vw ,8.125rem)
-  }
-  .clients__link .btn-circle__txt {
-    font-size: clamp(1.25rem ,.5402204861rem + 2.3611111111vw ,3.375rem)
-  }
-  .clients__link .btn-circle__arr svg {
-    width: clamp(.8125rem ,.4158585069rem + 1.3194444444vw ,2rem)
   }
   .projects {
     padding-top: clamp(8.75rem ,5.4098611111rem + 11.1111111111vw ,18.75rem)
@@ -3422,37 +3482,34 @@ body {
   .projects__items {
     row-gap: clamp(2rem ,-.1502144097rem + 7.1527777778vw ,8.4375rem)
   }
-  .projects__items {
-    margin-bottom: clamp(2.25rem ,1.4358411458rem + 2.7083333333vw ,4.6875rem)
+  .projects__items .item-project:nth-child(5n+2) {
+    margin-top: clamp(2rem ,-.1502144097rem + 7.1527777778vw ,8.4375rem)
+  }
+  .projects__items .item-project:nth-child(5n+3) {
+    margin-top: clamp(2rem ,.5804409722rem + 4.7222222222vw ,6.25rem)
   }
   .nav-projects__list {
-    -webkit-column-gap: clamp(.625rem ,.2283585069rem + 1.3194444444vw ,1.8125rem);
-    -moz-column-gap: clamp(.625rem ,.2283585069rem + 1.3194444444vw ,1.8125rem);
-    column-gap: clamp(.625rem ,.2283585069rem + 1.3194444444vw ,1.8125rem)
+    -webkit-column-gap: clamp(.625rem ,.249234375rem + 1.25vw ,1.75rem);
+    -moz-column-gap: clamp(.625rem ,.249234375rem + 1.25vw ,1.75rem);
+    column-gap: clamp(.625rem ,.249234375rem + 1.25vw ,1.75rem)
   }
   .nav-projects__list {
-    row-gap: clamp(1rem ,.7286137153rem + .9027777778vw ,1.8125rem)
+    row-gap: clamp(1rem ,.9582482639rem + .1388888889vw ,1.125rem)
   }
   .nav-projects__link {
-    font-size: clamp(.875rem ,.5201102431rem + 1.1805555556vw ,1.9375rem)
+    font-size: clamp(.75rem ,.5203654514rem + .7638888889vw ,1.4375rem)
   }
   .nav-projects__link {
-    padding-top: clamp(.375rem ,.2914965278rem + .2777777778vw ,.625rem)
+    padding-block: clamp(.3125rem ,.2081206597rem + .3472222222vw ,.625rem)
   }
   .nav-projects__link {
-    padding-bottom: clamp(.375rem ,.2914965278rem + .2777777778vw ,.625rem)
-  }
-  .nav-projects__link {
-    padding-left: clamp(.625rem ,.2909861111rem + 1.1111111111vw ,1.625rem)
-  }
-  .nav-projects__link {
-    padding-right: clamp(.625rem ,.2909861111rem + 1.1111111111vw ,1.625rem)
+    padding-inline: clamp(.625rem ,.2909861111rem + 1.1111111111vw ,1.625rem)
   }
   .item-project__head {
-    margin-bottom: clamp(2rem ,1.1440894097rem + 2.8472222222vw ,4.5625rem)
+    margin-bottom: clamp(2rem ,1.624234375rem + 1.25vw ,3.125rem)
   }
   .item-project__arrow {
-    width: clamp(1.5rem ,.8528480903rem + 2.1527777778vw ,3.4375rem)
+    width: clamp(1.5rem ,.9989791667rem + 1.6666666667vw ,3rem)
   }
   .item-project__arrow {
     top: clamp(1.4375rem ,.8320998264rem + 2.0138888889vw ,3.25rem)
@@ -3461,18 +3518,18 @@ body {
     right: clamp(1.4375rem ,.8320998264rem + 2.0138888889vw ,3.25rem)
   }
   .item-project__title {
-    font-size: clamp(1.5625rem ,.9362239583rem + 2.0833333333vw ,3.4375rem)
+    font-size: clamp(1.5625rem ,1.3328654514rem + .7638888889vw ,2.25rem)
   }
   .item-project__title {
-    margin-bottom: clamp(.875rem ,.5618619792rem + 1.0416666667vw ,1.8125rem)
+    margin-bottom: clamp(.625rem ,.5206206597rem + .3472222222vw ,.9375rem)
   }
   .item-project__subtitle {
-    font-size: clamp(.875rem ,.5201102431rem + 1.1805555556vw ,1.9375rem)
+    font-size: clamp(.875rem ,.8332482639rem + .1388888889vw ,1rem)
   }
   .head-project__category,
   .head-project__footer,
   .head-project__serv-t {
-    font-size: clamp(.9375rem ,.5199826389rem + 1.3888888889vw ,2.1875rem)
+    font-size: clamp(.9375rem ,.7704930556rem + .5555555556vw ,1.4375rem)
   }
   .project h1 {
     font-size: clamp(3.375rem ,1.2665373264rem + 7.0138888889vw ,9.6875rem)
@@ -3484,16 +3541,16 @@ body {
     padding-bottom: clamp(1.875rem ,.4971927083rem + 4.5833333333vw ,6rem)
   }
   .head-project__about {
-    font-size: clamp(.8125rem ,.3323550347rem + 1.5972222222vw ,2.25rem)
+    font-size: clamp(.8125rem ,.436734375rem + 1.25vw ,1.9375rem)
   }
   .head-project__about {
     margin-bottom: clamp(2.25rem ,.9139444444rem + 4.4444444444vw ,6.25rem)
   }
   .head-project__serv-t {
-    margin-bottom: clamp(.5rem ,.124234375rem + 1.25vw ,1.625rem)
+    margin-bottom: clamp(.5rem ,.2703654514rem + .7638888889vw ,1.1875rem)
   }
   .head-project__category {
-    margin-bottom: clamp(.875rem ,.6244895833rem + .8333333333vw ,1.625rem)
+    margin-bottom: clamp(.875rem ,.4366067708rem + 1.4583333333vw ,2.1875rem)
   }
   .about-project__block:not(:last-child) {
     margin-bottom: clamp(1.875rem ,.2049305556rem + 5.5555555556vw ,6.875rem)
@@ -3519,10 +3576,10 @@ body {
     width: clamp(.375rem ,.2914965278rem + .2777777778vw ,.625rem)
   }
   .slider-project__btn {
-    width: clamp(2.625rem ,.9966822917rem + 5.4166666667vw ,7.5rem)
+    width: clamp(2.625rem ,1.9569722222rem + 2.2222222222vw ,4.625rem)
   }
   .block-a-project__txt {
-    font-size: clamp(.8125rem ,.3323550347rem + 1.5972222222vw ,2.25rem)
+    font-size: clamp(.9375rem ,.7704930556rem + .5555555556vw ,1.4375rem)
   }
   .block-b-project__left {
     padding: clamp(1.625rem ,.497703125rem + 3.75vw ,5rem)
@@ -3544,6 +3601,12 @@ body {
   .block-b-project__left ul li::before {
     width: clamp(.1875rem ,.1248723958rem + .2083333333vw ,.375rem)
   }
+  .team-project {
+    font-size: clamp(1.25rem ,.874234375rem + 1.25vw ,2.375rem)
+  }
+  .team-project__kama span {
+    font-size: clamp(1rem ,.7077378472rem + .9722222222vw ,1.875rem)
+  }
 }
 @media (min-width:24.43625em)and (max-width:120.06125em) {
   .form__items {
@@ -3551,23 +3614,11 @@ body {
     -moz-column-gap: clamp(1.875rem ,.0382883987rem + 7.5163398693vw ,9.0625rem);
     column-gap: clamp(1.875rem ,.0382883987rem + 7.5163398693vw ,9.0625rem)
   }
-  .figures__txt {
-    font-size: clamp(2.1875rem ,.8778447712rem + 5.3594771242vw ,7.3125rem)
-  }
-  .figures__txt span {
-    font-size: clamp(1.5625rem ,.6840727124rem + 3.5947712418vw ,5rem)
-  }
   .figures__title {
     font-size: clamp(.625rem ,.2896004902rem + 1.3725490196vw ,1.9375rem)
   }
   .figures__subtitle {
     font-size: clamp(.4375rem ,.2618145425rem + .7189542484vw ,1.125rem)
-  }
-  .info-hero__txt {
-    font-size: clamp(1.875rem ,1.3639150327rem + 2.091503268vw ,3.875rem)
-  }
-  .ticker-clients__item {
-    width: clamp(12.125rem ,8.9946045752rem + 12.8104575163vw ,24.375rem)
   }
 }
 @media (min-width:51.31125em)and (max-width:120.06125em) {
@@ -3616,20 +3667,83 @@ body {
   .pdd-tb {
     padding-bottom: clamp(3.75rem ,2.4974479167rem + 4.1666666667vw ,6.25rem)
   }
+  .pdd-b-140-80 {
+    padding-bottom: clamp(5rem ,3.121171875rem + 6.25vw ,8.75rem)
+  }
+  .pdd-tb-136-60 {
+    padding-block: clamp(5rem ,3.2464270833rem + 5.8333333333vw ,8.5rem)
+  }
+  .pdd-t-136-60 {
+    padding-top: clamp(5rem ,3.2464270833rem + 5.8333333333vw ,8.5rem)
+  }
+  .pdd-b-136-60 {
+    padding-bottom: clamp(5rem ,3.2464270833rem + 5.8333333333vw ,8.5rem)
+  }
+  .pdd-tb-84-56 {
+    padding-block: clamp(3.5rem ,2.6232135417rem + 2.9166666667vw ,5.25rem)
+  }
+  .pdd-t-84-56 {
+    padding-top: clamp(3.5rem ,2.6232135417rem + 2.9166666667vw ,5.25rem)
+  }
+  .pdd-b-84-56 {
+    padding-bottom: clamp(3.5rem ,2.6232135417rem + 2.9166666667vw ,5.25rem)
+  }
+  .pdd-t-64-49 {
+    padding-top: clamp(3.0625rem ,2.5927929688rem + 1.5625vw ,4rem)
+  }
+  .pdd-b-64-49 {
+    padding-bottom: clamp(3.0625rem ,2.5927929688rem + 1.5625vw ,4rem)
+  }
+  .txt-42 {
+    font-size: clamp(1.5625rem ,1.0927929688rem + 1.5625vw ,2.5rem)
+  }
+  .txt-25 {
+    font-size: clamp(1.25rem ,1.0934309896rem + .5208333333vw ,1.5625rem)
+  }
+  .txt-24 {
+    font-size: clamp(.8125rem ,.5933033854rem + .7291666667vw ,1.25rem)
+  }
   .block-clm__txt:not(:last-child) {
-    margin-bottom: clamp(1rem ,-.127296875rem + 3.75vw ,3.25rem)
+    margin-bottom: clamp(1.25rem ,1.0621171875rem + .625vw ,1.625rem)
+  }
+  .btn-circle {
+    width: clamp(9.0625rem ,5.680609375rem + 11.25vw ,15.8125rem)
+  }
+  .btn-circle__arr svg {
+    width: clamp(.625rem ,.5310585938rem + .3125vw ,.8125rem)
   }
   .header {
     padding-top: clamp(1rem ,.8747447917rem + .4166666667vw ,1.25rem)
   }
   .header__logo {
-    width: clamp(1.4375rem ,.9051653646rem + 1.7708333333vw ,2.5rem)
+    width: clamp(1.875rem ,1.2487239583rem + 2.0833333333vw ,3.125rem)
   }
   .footer {
-    padding-top: clamp(2.5rem ,1.2474479167rem + 4.1666666667vw ,5rem)
+    padding-top: clamp(.9375rem ,-1.0039557292rem + 6.4583333333vw ,4.8125rem)
+  }
+  .footer__logo {
+    margin-bottom: clamp(1.25rem ,-.0964934896rem + 4.4791666667vw ,3.9375rem)
+  }
+  .footer__logo-i {
+    width: clamp(1.875rem ,1.2487239583rem + 2.0833333333vw ,3.125rem)
+  }
+  .footer__title {
+    margin-bottom: clamp(1.875rem ,1.2487239583rem + 2.0833333333vw ,3.125rem)
+  }
+  .footer__txt span {
+    font-size: clamp(1.125rem ,.749234375rem + 1.25vw ,1.875rem)
+  }
+  .links-footer__title {
+    font-size: clamp(.8125rem ,.7498723958rem + .2083333333vw ,.9375rem)
+  }
+  .links-footer__title {
+    margin-bottom: clamp(1.25rem ,.8429205729rem + 1.3541666667vw ,2.0625rem)
   }
   .info-hero__img {
     margin-right: clamp(.625rem ,.3118619792rem + 1.0416666667vw ,1.25rem)
+  }
+  .ticker__item {
+    font-size: clamp(2.9375rem ,.9647304687rem + 6.5625vw ,6.875rem)
   }
   .ticker__item {
     padding-left: clamp(.9375rem ,.3112239583rem + 2.0833333333vw ,2.1875rem)
@@ -3637,8 +3751,47 @@ body {
   .ticker__item {
     padding-right: clamp(.9375rem ,.3112239583rem + 2.0833333333vw ,2.1875rem)
   }
-  .clients__ticker {
-    margin-bottom: clamp(3.75rem ,-.00765625rem + 12.5vw ,11.25rem)
+  .ticker__item .img img {
+    height: clamp(3.125rem ,-.0063802083rem + 10.4166666667vw ,9.375rem)
+  }
+  .spollers-s__num {
+    font-size: clamp(.5625rem ,.2180481771rem + 1.1458333333vw ,1.25rem)
+  }
+  .spollers-s__name {
+    font-size: clamp(1.5625rem ,.4665169271rem + 3.6458333333vw ,3.75rem)
+  }
+  .spollers-s__link {
+    padding-inline: clamp(1.25rem ,.9368619792rem + 1.0416666667vw ,1.875rem)
+  }
+  .spollers-s__link {
+    min-height: clamp(1.8125rem ,1.436734375rem + 1.25vw ,2.5625rem)
+  }
+  .spollers-s__link {
+    font-size: clamp(.875rem ,.6871171875rem + .625vw ,1.25rem)
+  }
+  .spollers-s__wrapper {
+    font-size: clamp(.875rem ,.6871171875rem + .625vw ,1.25rem)
+  }
+  .spollers-mb__wrapper {
+    font-size: clamp(.9375rem ,.7809309896rem + .5208333333vw ,1.25rem)
+  }
+  .clients__title {
+    margin-bottom: clamp(1.875rem ,.1840546875rem + 5.625vw ,5.25rem)
+  }
+  .clients__link {
+    margin-block: clamp(3.75rem ,.743875rem + 10vw ,9.75rem)
+  }
+  .clients__link .btn-circle__txt {
+    font-size: clamp(1.5625rem ,1.0927929688rem + 1.5625vw ,2.5rem)
+  }
+  .clients__link .btn-circle__arr svg {
+    width: clamp(.8125rem ,.4054205729rem + 1.3541666667vw ,1.625rem)
+  }
+  .projects__block {
+    padding-bottom: clamp(1.875rem ,-.3169661458rem + 7.2916666667vw ,6.25rem)
+  }
+  .projects__items {
+    margin-bottom: clamp(2.1875rem ,1.5299101563rem + 2.1875vw ,3.5rem)
   }
   .about-project__colors {
     padding-left: clamp(.75rem ,.4681757813rem + .9375vw ,1.3125rem)
@@ -3664,9 +3817,6 @@ body {
   .video-project__play {
     font-size: clamp(.875rem ,.7497447917rem + .4166666667vw ,1.125rem)
   }
-  .team-project {
-    font-size: clamp(1.25rem ,.5610963542rem + 2.2916666667vw ,2.625rem)
-  }
   .team-project h2 {
     margin-bottom: clamp(1.25rem ,.1540169271rem + 3.6458333333vw ,3.4375rem)
   }
@@ -3674,22 +3824,45 @@ body {
     margin-top: clamp(5rem ,3.121171875rem + 6.25vw ,8.75rem)
   }
 }
+@media (min-width:90.06125em)and (max-width:120.06125em) {
+  .txt-32 {
+    font-size: clamp(1.25rem ,.124234375rem + 1.25vw ,1.625rem)
+  }
+  .txt-24 {
+    font-size: clamp(1.25rem ,.124234375rem + 1.25vw ,1.625rem)
+  }
+  .txt-20 {
+    font-size: clamp(.9375rem ,-.0006380208rem + 1.0416666667vw ,1.25rem)
+  }
+  .info-hero__txt {
+    font-size: clamp(2.125rem ,.2487239583rem + 2.0833333333vw ,2.75rem)
+  }
+}
 @media (min-width:24.43625em)and (max-width:90.06125em) {
+  .figures__txt {
+    font-size: clamp(2.1875rem ,1.2798678571rem + 3.7142857143vw ,4.625rem)
+  }
+  .figures__txt span {
+    font-size: clamp(1.5625rem ,.8643214286rem + 2.8571428571vw ,3.4375rem)
+  }
   .figures__title-wr {
     margin-bottom: clamp(1.875rem ,.2459166667rem + 6.6666666667vw ,6.25rem)
   }
+  .info-hero__txt {
+    font-size: clamp(1.875rem ,1.7819095238rem + .380952381vw ,2.125rem)
+  }
+  .ticker-clients__item {
+    width: clamp(12.125rem ,11.0544595238rem + 4.380952381vw ,15rem)
+  }
 }
 @media (min-width:48.06125em)and (max-width:90.06125em) {
-  .sub-txt {
-    font-size: clamp(1.25rem ,.963921131rem + .5952380952vw ,1.5rem)
-  }
   .info-hero__txt {
     padding-left: clamp(.0000000625rem ,-2.6462294047rem + 5.5059522321vw ,2.3125rem)
   }
 }
 @media (min-width:31.31125em)and (max-width:120.06125em) {
   .team__img {
-    width: clamp(31.25rem ,25.0759507042rem + 19.7183098592vw ,48.75rem)
+    width: clamp(31.25rem ,29.8608389085rem + 4.4366197183vw ,35.1875rem)
   }
 }
 @media (min-width:62.06125em)and (max-width:120.06125em) {
@@ -3765,9 +3938,18 @@ body {
     -webkit-transform: scale(1);
     transform: scale(1)
   }
-  .item-project__link:hover .item-project__arrow {
-    -webkit-transform: scale(1.4);
-    transform: scale(1.4)
+  .item-project__link:hover .item-project__arrow::after {
+    -webkit-transform: rotate(-90deg) scaleX(1.2);
+    transform: rotate(-90deg) scaleX(1.2)
+  }
+  .item-project__link:hover .item-project__arrow::before {
+    -webkit-transform: scaleX(1.2);
+    transform: scaleX(1.2)
+  }
+  .item-project__link:hover .item-project__arrow span {
+    display: block;
+    -webkit-transform: rotate(-45deg) scaleX(1.65);
+    transform: rotate(-45deg) scaleX(1.65)
   }
   .slider-project__btn:hover {
     background-color: rgba(81,255,0,.3)

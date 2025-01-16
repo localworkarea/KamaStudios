@@ -2,23 +2,23 @@
   background-color: $neon-green;
   color: $black-800;
   padding-bottom: toRem(60);
-  @include adaptiveValue("padding-top", 80, 40,0,1440.98,480.98);
+  @include adaptiveValue("padding-top", 77, 15,0,1440.98,480.98);
   // .footer__container
   &__container {
   }
   // .footer__logo
   &__logo {
-    @include adaptiveValue("margin-bottom", 39, 20,0,1920.98,480.98);
+    @include adaptiveValue("margin-bottom", 63, 20,0,1440.98,480.98);
   }
   // .footer__logo-i
   &__logo-i {
     height: auto;
-    @include adaptiveValue("width", 52, 24,0,1920.98,480.98);
+    @include adaptiveValue("width", 50, 30,0,1440.98,480.98);
   }
   // .footer__title
   &__title {
     font-weight: 500;
-    @include adaptiveValue("margin-bottom", 100, 30,0,1920.98,480.98);
+    @include adaptiveValue("margin-bottom", 50, 30,0,1440.98,480.98);
   }
   // .footer__links
   &__links {
@@ -26,6 +26,9 @@
   // .footer__txt
   &__txt {
     text-transform: uppercase;
+    span {
+      @include adaptiveValue("font-size", 30, 18,0,1440.98,480.98);
+    }
     @media (min-width:$mobileSmall){
        text-align: right; 
     }
@@ -43,7 +46,7 @@
     gap: toRem(30);
   }
   @media (min-width:$mobileSmall){
-     margin-bottom: toRem(30); 
+     margin-bottom: toRem(100); 
   }
   @media (max-width:$mobileSmall){
       margin-bottom: toRem(60);
@@ -77,8 +80,8 @@
   }
   // .links-footer__title
   &__title {
-    @include adaptiveValue("font-size", 31, 13,0,1920.98,480.98);
-    @include adaptiveValue("margin-bottom", 65, 20,0,1920.98,480.98);
+    @include adaptiveValue("font-size", 15, 13,0,1440.98,480.98);
+    @include adaptiveValue("margin-bottom", 33, 20,0,1440.98,480.98);
   }
   // .links-footer__link
   &__link {

@@ -101,30 +101,62 @@ body {
   @include adaptiveValue("padding-bottom", 130, 30,0,1920.98,480.98); 
 }
 
+
+// == new ==================
+
+.pdd-b-140-80 {
+  @include adaptiveValue("padding-bottom", 140, 80,0,1440.98,480.98);
+}
+
+.pdd-tb-136-60 {
+  @include adaptiveValue("padding-block", 136, 80,0,1440.98,480.98);
+}
+.pdd-t-136-60 {
+  @include adaptiveValue("padding-top", 136, 80,0,1440.98,480.98);
+}
+.pdd-b-136-60 {
+  @include adaptiveValue("padding-bottom", 136, 80,0,1440.98,480.98);
+}
+
+.pdd-tb-84-56 {
+  @include adaptiveValue("padding-block", 84, 56,0,1440.98,480.98);
+}
+.pdd-t-84-56 {
+  @include adaptiveValue("padding-top", 84, 56,0,1440.98,480.98);
+}
+.pdd-b-84-56 {
+  @include adaptiveValue("padding-bottom", 84, 56,0,1440.98,480.98);
+}
+.pdd-t-64-49 {
+  @include adaptiveValue("padding-top", 64, 49,0,1440.98,480.98);
+}
+.pdd-b-64-49 {
+  @include adaptiveValue("padding-bottom", 64, 49,0,1440.98,480.98);
+}
+
 .txt-42 {
-  @include adaptiveValue("font-size", 55, 20,0,1920.98,480.98);
+  @include adaptiveValue("font-size", 40, 25,0,1440.98,480.98);
 }
 
 .txt-32 {
   line-height: 1.3;
-  // @include adaptiveValue("font-size", 42, 32,2,1920.98,1440.98);
-  // @include adaptiveValue("font-size", 32, 20,3,1440.98,480.98);
-  
-  @include adaptiveValue("font-size", 42, 20,0,1920.98,480.98);
+  @include adaptiveValue("font-size", 26, 20,0,1920.98,1440.98);
+}
+.txt-25 {
+  line-height: 1.3;
+  @include adaptiveValue("font-size", 25, 20,0,1440.98,480.98);
 }
 .txt-24 {
   font-weight: 500;
   text-transform: uppercase;
   line-height: 1.3;
-  @include adaptiveValue("font-size", 31, 13,0,1920.98,480.98);
+  @include adaptiveValue("font-size", 26, 20,2,1920.98,1440.98);
+  @include adaptiveValue("font-size", 20, 13,3,1440.98,480.98);
 }
 .txt-20 {
   font-weight: 500;
   line-height: 1.2;
-  // @include adaptiveValue("font-size", 26, 20,2,1920.98,1440.98);
-  // @include adaptiveValue("font-size", 20, 15,3,1440.98,480.98);
-
-  @include adaptiveValue("font-size", 26, 15,0,1920.98,480.98);
+  @include adaptiveValue("font-size", 20, 15,0,1920.98,1440.98);
 }
 
 .bg-gray-200 {
@@ -158,13 +190,13 @@ body {
 	// .block-clm__body
 	&__body {
     @media (min-width:$tablet){
-      max-width: 76%;
+      max-width: 67%;
     }
 	}
   // .block-clm__txt
   &__txt {
     &:not(:last-child) {
-      @include adaptiveValue("margin-bottom", 52, 16,0,1440.98,480.98);
+      @include adaptiveValue("margin-bottom", 26, 20,0,1440.98,480.98);
     }
   }
 }
@@ -196,10 +228,7 @@ body {
   display: grid;
   place-items: center;
   position: relative;
-  // @include adaptiveValue("width", 438, 337,2,1920.98,1440.98);
-  // @include adaptiveValue("width", 337, 145,3,1440.98,480.98);
-
-  @include adaptiveValue("width", 438, 145,0,1920.98,480.98);
+  @include adaptiveValue("width", 253, 145,0,1440.98,480.98);
   &:before {
     content:'';
     position: absolute;
@@ -242,7 +271,7 @@ body {
     // @include adaptiveValue("font-size", 31, 24,2,1920.98,1440.98);
     // @include adaptiveValue("font-size", 24, 13,3,1440.98,480.98);
 
-    @include adaptiveValue("font-size", 31, 13,0,1920.98,480.98);
+    @include adaptiveValue("font-size", 20, 13,0,1920.98,480.98);
   }
   // .btn-circle__arr
   &__arr {
@@ -252,7 +281,7 @@ body {
     svg {
       height: auto;
       transition: transform .4s ease;
-      @include adaptiveValue("width", 22, 10,0,1920.98,480.98);
+      @include adaptiveValue("width", 13, 10,0,1440.98,480.98);
     }
     .arrow {
 

@@ -9,7 +9,8 @@
       // transition-delay: 2.6s;
       @media (min-width:toEm(1200.98)){
         transform: translate(0,0%);
-        transition: transform .6s ease 2.6s;
+        opacity: 1;
+        transition: transform .6s ease 2.6s, opacity .2s ease 2.6s;
       }
     // }
   }
@@ -49,7 +50,7 @@
     opacity: 0;
     transition: opacity .3s ease;
     display: block;
-    @include adaptiveValue("width", 40, 23,0,1440.98,480.98);
+    @include adaptiveValue("width", 50, 30,0,1440.98,480.98);
     .loaded & {
       opacity: 1;
     }
@@ -73,6 +74,7 @@
 .menu {
   .index-page & {
     @media (min-width:toEm(1200.98)){
+      opacity: 0;
       transform: translate(0,-200%);
       // transition: transform .6s ease 2.6s;
     }
@@ -166,7 +168,7 @@
         // }
     @media (min-width:toEm(1200.98)){
       color: $gray-200;
-      font-size: toRem(32);
+      font-size: toRem(25);
       .project-page & {
         color: $black-800;
       }
@@ -270,6 +272,7 @@
   // .lng__link
   &__link {
     color: $gray-400;
+    font-size: toRem(15);
     @extend %hoverLine;
     .project-page & {
       color: $black-800;
