@@ -1224,6 +1224,7 @@ body {
 }
 .team__block {
   position: sticky;
+  position: -webkit-sticky;
   top: 0;
   z-index: 0
 }
@@ -1242,7 +1243,9 @@ body {
 }
 .team__picture {
   position: relative;
-  z-index: 2
+  z-index: 2;
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0)
 }
 .team__img {
   display: block;
