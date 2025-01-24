@@ -7,7 +7,7 @@
     background-color: #070707;
     &.loaded {
       &::before {
-        height: 100vh;
+        height: 100svh;
       }
     }
     &.step-1 {
@@ -25,17 +25,17 @@
     &.step-2 {
       &::before {
         @media (min-width:$mobile){
-          height: 75vh;
+          height: 75svh;
         }
         @media (max-width:$mobile){
-          height: 42vh;
+          height: 42svh;
         }
       }
     }
     &.step-3 {
       &::before {
         @media (min-width:$mobile){
-          height: 100vh !important;
+          height: 100svh !important;
           transition-delay: 0s;
         }
         // @media (max-width:$mobile){
@@ -51,7 +51,7 @@
       left: 0;
       background-color: $gray-200;
       
-      height: 0vh;
+      height: 0svh;
       width: 100vw;
       transition: width .45s ease, height .45s ease;
     }

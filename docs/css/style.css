@@ -833,7 +833,7 @@ body {
   background-color: #070707
 }
 .hero__body.loaded::before {
-  height: 100vh
+  height: 100svh
 }
 .hero__body.step-1::before {
   bottom: unset;
@@ -846,7 +846,7 @@ body {
   bottom: 0;
   left: 0;
   background-color: #d9d9d9;
-  height: 0;
+  height: 0svh;
   width: 100vw;
   transition: width .45s ease,height .45s ease
 }
@@ -1956,10 +1956,10 @@ body {
     width: 35vw
   }
   .hero__body.step-2::before {
-    height: 75vh
+    height: 75svh
   }
   .hero__body.step-3::before {
-    height: 100vh!important;
+    height: 100svh!important;
     transition-delay: 0s
   }
   .figures {
@@ -2797,7 +2797,7 @@ body {
     width: 46vw
   }
   .hero__body.step-2::before {
-    height: 42vh
+    height: 42svh
   }
   .figures {
     grid-template-columns: 46% 54%;
