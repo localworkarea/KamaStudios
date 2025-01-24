@@ -4,6 +4,7 @@
     overflow: hidden;
     min-height: 100svh;
     position: relative;
+    background-color: #070707;
     &.loaded {
       &::before {
         height: 100vh;
@@ -17,7 +18,7 @@
           width: 35vw;
         }
         @media (max-width:$mobile){
-          width: 40vw;
+          width: 46vw;
         }
       }
     }
@@ -27,7 +28,7 @@
           height: 75vh;
         }
         @media (max-width:$mobile){
-          height: 40vh;
+          height: 42vh;
         }
       }
     }
@@ -55,12 +56,22 @@
       transition: width .45s ease, height .45s ease;
     }
   }
+	// .hero__wr-video
+	&__wr-video {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 0;
+    @media (min-width:$mobileSmall){
+      height: 100%;
+    }
+    @media (max-width:$mobileSmall){
+      height: 58%;        
+    }
+	}
   // .hero__video
   &__video {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-
     opacity: 0;
     .loaded & {
       opacity: 1;
@@ -97,9 +108,9 @@
     grid-template-rows: 75% 25% ;
     
   }
-  @media (max-width:$mobile){
-    grid-template-columns: 40% 60% ;
-    grid-template-rows: 40% 50% 10% ;
+  @media (max-width:$mobile) {
+    grid-template-columns: 46% 54% ;
+    grid-template-rows: 42% 50% 10% ;
     // .step-3 & {
       // transition: grid-template-rows .45s ease .3s;
       // grid-template-rows: 80% 20% 0% ;
@@ -182,7 +193,6 @@
 
 	// .figures__title-wr
 	&__title-wr {
-    padding-right: toRem(8);
     overflow: hidden;
     transition: transform .8s ease;
     @include adaptiveValue("margin-bottom", 100, 30,0,1440.98,390.98);
@@ -198,9 +208,11 @@
       padding-left: toRem(15);
     }
     @media (min-width:$mobile){
+      padding-right: toRem(8);
       padding-top: toRem(50);
     }
     @media (max-width:$mobile){
+      padding-right: toRem(30);
       transition-delay: .3s;
     }
 	}
@@ -217,12 +229,13 @@
 	// .figures__title
 	&__title {
     margin-bottom: toRem(10);
-    @include adaptiveValue("font-size", 31, 10,0,1920.98,390.98);
+    @include adaptiveValue("font-size", 31, 13,0,1920.98,768.98);
 	}
 	// .figures__subtitle
 	&__subtitle {
     max-width: 33ch;
-    @include adaptiveValue("font-size", 18, 7,0,1920.98,390.98);
+    line-height: 1.2;
+    @include adaptiveValue("font-size", 18, 10,0,1920.98,768.98);
 	}
 	// .figures__sub-txt-01
 	&__sub-txt-01 {
@@ -289,8 +302,11 @@
     @media (min-width:$mobile){
       width: 30vw;
     }
-    @media (max-width:$mobile){
+    @media (max-width:$mobile) and (min-width: $mobileSmall){
       width: 100%;
+    }
+    @media (max-width:$mobileSmall){
+       width: 127%; 
     }
     .rect-green {
       transition: transform .55s ease;
@@ -300,8 +316,10 @@
         transition-delay: 2.2s;
       }
       .step-3 & {
-        transform: translate(0,-80%);
-        transition-delay: 0s;
+        @media (min-width:$mobileSmall){
+          transform: translate(0,-80%);
+          transition-delay: 0s;
+        }
       }
     }
     .rect-prp-02 {
@@ -312,8 +330,10 @@
         transition-delay: 2.35s;
       }
       .step-3 & {
-        opacity: 0;
-        transition-delay: 0s;
+        @media (min-width:$mobileSmall){
+          opacity: 0;
+          transition-delay: 0s;
+        }
       }
     }
     .rect-prp-01 {
@@ -324,8 +344,10 @@
         transition-delay: 1.95s;
       }
       .step-3 & {
-        opacity: 0;
-        transition-delay: 0s;
+        @media (min-width:$mobileSmall){
+          opacity: 0;
+          transition-delay: 0s;
+        }
       }
     }
   }
